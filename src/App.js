@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
 import {Menu} from 'antd';
+
+import Routes from './Routes';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Menu>
-          <Menu.Item>Home</Menu.Item>
-        </Menu>
+
+
+      <div>
+        <nav></nav>
+        <Routes />
+
       </div>
     );
   }

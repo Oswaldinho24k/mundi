@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+
+import {Menu} from 'antd';
+
 import Routes from './Routes';
 import NavBar from './common/NavBar';
 import { Layout, Menu, Breadcrumb } from 'antd';
 const { Header, Content, Footer } = Layout;
 
+
 class App extends Component {
   render() {
     return (
+
 <Layout>
     <NavBar />
     <Content style={{ padding: '0 50px' }}>
@@ -17,6 +22,7 @@ class App extends Component {
         </a>
     </Footer>
   </Layout>
+
     );
   }
 }

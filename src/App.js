@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-
-import {Menu} from 'antd';
-
 import Routes from './Routes';
+import NavBar from './components/common/NavBar';
+import { Layout } from 'antd';
+const { Footer } = Layout;
 
 
 class App extends Component {
   render() {
     return (
 
-
-      <div>
-        <nav></nav>
+<section>
+    <NavBar />
+    <div style={{paddingTop:'64'}}>
         <Routes />
+        <Footer style={{ textAlign: 'center' }}>
+            Mundi  ©2017 Created by <a href="http://fixter.org">
+                Fixter.org
+            </a>
+        </Footer>
+    </div>
 
-      </div>
+  </section>
+
     );
   }
 }

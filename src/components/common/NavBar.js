@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import FontAwesome from 'react-fontawesome';
+import {Avatar} from 'antd';
 
 
 
 class NavBar extends Component{
+
+
+
     render(){
         const ancho = document.documentElement.clientWidth < 600;
         return(
@@ -19,59 +23,67 @@ class NavBar extends Component{
                     marginRight:'10px'
              }}
          >Mundi</h2>
-         <div 
+         <div
            style={ancho ? styles.noShow:styles.icons}>
-            <FontAwesome 
+            <FontAwesome
                 style={styles.icon}
-                name="facebook" 
+                name="facebook"
                 size='2x'
             />
-             <FontAwesome 
+             <FontAwesome
                 style={styles.icon}
-                name="twitter" 
+                name="twitter"
                 size='2x'
             />
-             <FontAwesome 
+             <FontAwesome
                 style={styles.icon}
-                name="google-plus" 
+                name="google-plus"
                 size='2x'
             />
-             <FontAwesome 
+
+            <FontAwesome
                 style={styles.icon}
-                name="youtube" 
-                size='2x'
-            />
-            <FontAwesome 
-                style={styles.icon}
-                name="instagram" 
+                name="instagram"
                 size='2x'
             />
             <div style={styles.icon}>
             {" | "}
             </div>
-            <FontAwesome 
+            <FontAwesome
                 style={styles.icon}
-                name="phone"    
+                name="phone"
             />
+
             <span style={{
                      color:'grey',
-                    fontSize:'1rem'
+                    fontSize:'1rem',
+                    marginRight:'30px'
                  }}>(33)771-34-56</span>
-            
+           <div style={styles.icon}>
+         {" | "}
+         </div>
+
+           <span style={{
+                    color:'grey',
+                   fontSize:'1rem'
+                }}>Perfil</span>
+
+
          </div>
          <div style={!ancho ? styles.noShow:{display:'inline-block'}}>
               <div style={styles.icon}>
             {" | "}
             </div>
-              <FontAwesome 
+              <FontAwesome
                 style={styles.icon}
-                name="phone"    
+                name="phone"
             />
-           
+
             <span style={{
                      color:'grey',
                     fontSize:'1rem'
                  }}>(33)771-34-56</span>
+
          </div>
      </nav>
     </div>
@@ -97,7 +109,7 @@ const styles = {
         padding:'17px 20px 0 40px'
     },
     icon:{
-        color:'white', 
+        color:'white',
         display:'inline-block',
         marginRight:'30px',
         fontSize:'1.3rem',

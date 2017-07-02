@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { Form, Icon, Input,Card,  Button, Checkbox, message, Popover } from 'antd';
+import { Form, Icon, Input,Card,  Button, message, Popover } from 'antd';
 import {Link} from 'react-router-dom';
+import firebase from '../../firebase';
 
 
 
@@ -36,9 +37,35 @@ class PaswordRecover extends Component{
 
 class LogIn extends Component{
 
+  state={
+    user:{
+      pass:'',
+      email:''
+    }
+  }
+
+
+
+  onChange = (e) => {
+    let user = this.state.user;
+    const field = e.target.name;
+    user[field] = e.target.value;
+    this.setState({user});
+    console.log(this.state.user)
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
-      message.success('Bienvenido!')
+    let mail = this.state.user.email
+    let pass = this.state.user.pass
+    firebase.auth().signInWithEmailAndPassword(mail, pass).then(()=>{
+      message.success('Bienvenido '+ mail)
+      this.props.history.push('/')
+    }).catch((error)=> {
+      message.error('Algo está mal, intenta de nuevo')
+    });
+
+
   }
   render(){
 
@@ -48,12 +75,18 @@ class LogIn extends Component{
           <Form onSubmit={this.handleSubmit} className="login-form">
           <Form.Item>
 
-              <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="email" />
+              <Input
+                name="email"
+                onChange={this.onChange}
+                prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="email" />
 
           </Form.Item>
           <Form.Item>
 
-              <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Contraseña" />
+              <Input
+                name="pass"
+                onChange={this.onChange}
+                prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Contraseña" />
 
           </Form.Item>
           <Form.Item style={{textAlign:'center'}}>

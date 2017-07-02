@@ -1,4 +1,4 @@
-import * as firebase as 'firebase'; 
+import * as firebase from 'firebase'; 
 
 // Initialize Firebase
   var config = {

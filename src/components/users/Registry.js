@@ -1,30 +1,51 @@
 import React, {Component} from 'react';
-import { Form, Icon, Input,Card,  Button, Checkbox, message } from 'antd';
+import { Form, Input,Card,  Button,message } from 'antd';
 import {Link} from 'react-router-dom';
+import firebase from '../../firebase';
 
 class Registro extends Component{
 
   state = {
    confirmDirty: false,
-
+   nuevo:{
+     pass:'',
+     email:''
+   }
  };
 
   handleConfirmBlur = (e) => {
-  const value = e.target.value;
-  this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-}
-checkPassword = (rule, value, callback) => {
-  const form = this.props.form;
-  if (value && value !== form.getFieldValue('password')) {
-    callback('Two passwords that you enter is inconsistent!');
-  } else {
-    callback();
+    const value = e.target.value;
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
-}
+  onChange = (e) => {
+		let nuevo = this.state.nuevo;
+		const field = e.target.name;
+		nuevo[field] = e.target.value;
+		this.setState({nuevo});
+    console.log(this.state.nuevo)
+	};
+  checkPassword = (rule, value, callback) => {
+    const form = this.props.form;
+    if (value && value !== form.getFieldValue('password')) {
+      callback('Two passwords that you enter is inconsistent!');
+    } else {
+      callback();
+    }
+  }
+
 
   handleSubmit = (e) => {
     e.preventDefault();
+    let mail = this.state.nuevo.email
+    let pass = this.state.nuevo.pass
+    let user = this.state.nuevo
+    firebase.auth().createUserWithEmailAndPassword(mail, pass).then(()=>{
+
+      firebase.database().ref('/users').push(user)
+    })
+
     message.success('Registro exitoso')
+    this.props.history.push('/logIn')
 
   }
   render(){
@@ -57,7 +78,7 @@ checkPassword = (rule, value, callback) => {
                   required: true, message: 'Please input your E-mail!',
                 }],
               })(
-                <Input />
+                <Input name='email' onChange={this.onChange}/>
               )}
             </Form.Item>
             <Form.Item
@@ -87,7 +108,7 @@ checkPassword = (rule, value, callback) => {
                   validator: this.checkPassword,
                 }],
               })(
-                <Input type="password" onBlur={this.handleConfirmBlur} />
+                <Input type="password" name="pass" onChange={this.onChange} onBlur={this.handleConfirmBlur} />
               )}
             </Form.Item>
             <Form.Item style={{textAlign:'center'}}>

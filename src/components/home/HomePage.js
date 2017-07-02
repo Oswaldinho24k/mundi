@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Slider from '../common/Slider';
+import Selector from './Selector';
+
 
 
 class HomePage extends Component{
@@ -8,7 +10,7 @@ class HomePage extends Component{
         return(
         <div style={styles.portada}>
            <div style={styles.mainSelect}>
-           mta
+            <Selector/>
            </div>
            <div style={ancho ? styles.noShow:styles.secondSelect}></div>
            <Slider />
@@ -27,7 +29,7 @@ const styles = {
         left:'50',
         width:'100%',
         maxWidth:'500px',
-        height:'400px',
+        maxHeight:'450px',
         border:'2px solid #66bb6a',
         borderRadius:'10px',
         zIndex:'999',

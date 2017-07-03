@@ -4,11 +4,28 @@ import { Card } from 'antd';
 import { Steps, Icon } from 'antd';
 import Export from './Export';
 import Products from './Products';
+import Cliente from './Cliente';
+import Agente from './Agente';
+import Pago from './Pago';
+
 
 const Step = Steps.Step;
 
 
 class Landing extends Component{
+    
+    agregar = (p) => {
+
+    this.state.products.push(p);
+    this.setState({products:this.state.products});
+    this.sumale(p.peso);
+    this.next();
+    }
+    
+    addCliente = (cliente) => {
+        this.setState({cliente});
+        this.next();
+    }
     
     next = () => {
         const current = this.state.current + 1;
@@ -22,11 +39,22 @@ class Landing extends Component{
         dates['empresa'] = item.empresa;
         this.setState({dates});
     };
+
+    agente = (item) => {
+        console.log('agente', item)
+        const dates = this.state.dates;
+        dates['agente'] = item;
+        this.setState({dates});
+        this.next();
+    };
     
     state = {
         current:0,
         ancho:document.documentElement.clientWidth < 600,
         dates:'',
+        products:[],
+        cliente:{},
+        total:0,
         steps:[
     {
         title:'Compañia',
@@ -41,7 +69,7 @@ class Landing extends Component{
         title:'Productos',
         icon:'tags',
         content:(<Products 
-        lupe="lupe" 
+        agregar={this.agregar}
         next={this.next}
         exporter={this.exporter}
           />)
@@ -49,15 +77,26 @@ class Landing extends Component{
         {
         title:'Cliente',
         icon:'user',
-        content:(<div>Gato</div>)
+        content:(<Cliente
+            addCliente={this.addCliente}
+          />)
     },
         {
         title:'Agente',
         icon:'rocket',
-        content:(<div>Perico</div>)
+        content:(<Agente
+            agente={this.agente}
+          />)
+    },
+            {
+        title:'Pago',
+        icon:'credit-card',
+        content:(<Pago />)
     }
 ]
     }
+    
+
     
 
     prev = () => {
@@ -70,10 +109,16 @@ class Landing extends Component{
         this.setState({dates});
     }
 
+    
+    sumale = (peso) => {
+        const monto = this.state.dates.precio;
+        let costo = parseInt(peso)*monto;
+        this.setState({total:this.state.total + costo});
+    };
 
     
     render(){
-        const {steps, current, ancho, dates} = this.state;
+        const {cliente, total, steps, current, ancho, dates} = this.state;
         return(
             <section style={styles.container}>
                
@@ -85,7 +130,28 @@ class Landing extends Component{
                        </span>
                    </h2>
                    <h3>Fecha de embarque: {dates.fecha}</h3>
+                   {dates.agente && <h4>Agente Aduanal: {dates.agente.empresa}</h4>}
                    <h2>{dates.empresa}</h2>
+                   <p>Producto:</p>
+                   {this.state.products.map(p=>(
+                      
+                       <p key={p.nombre}>{p.nombre} - {p.peso} kg</p>
+                   ))}
+                   
+                    <h4>
+                        Cliente: {cliente.nombre}
+                    </h4>
+                   <p>
+                       Dirección de envío: {cliente.dir}
+                    </p>
+                   
+                   <h2>
+                   Total:
+                   <span style={{float:'right'}}>
+                           $ {total}
+                    </span>
+                   </h2>
+                   
                </Card>
                
                

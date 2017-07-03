@@ -1,49 +1,49 @@
 {
         "0":{
-        "empresa":"Maersk",
-        "precio":200,
+        "empresa":"Barrenechea sucesores",
+        "precio":2000,
         "horario":"12:00",
         "promocion":null
         },
         "1":{
-        "empresa":"CMA CGM",
-        "precio":250,
+        "empresa":"Mg Grupo Aguanal",
+        "precio":2300,
         "horario":"11:00",
         "promocion":"10%"
         },
     "1":{
-        "empresa":"MSC",
-        "precio":250,
+        "empresa":"Grupo Luis Hoyo",
+        "precio":2800,
         "horario":"11:00",
         "promocion":"10%"
         },
     "2":{
-        "empresa":"Hamburgo SUD",
-        "precio":250,
+        "empresa":"Gil Agentes Aduanales",
+        "precio":3300,
         "horario":"11:00",
         "promocion":"10%"
         },
     "3":{
-        "empresa":"MainPack",
-        "precio":250,
+        "empresa":"AduanaBoy",
+        "precio":2050,
         "horario":"11:00",
         "promocion":"10%"
         },
     "4":{
-        "empresa":"Colon",
-        "precio":250,
+        "empresa":"Colon Agentes",
+        "precio":2590,
         "horario":"11:00",
         "promocion":"10%"
         },
     "5":{
-        "empresa":"Transsend",
-        "precio":250,
+        "empresa":"Transsend Movers",
+        "precio":2950,
         "horario":"11:00",
         "promocion":"10%"
         },
     "6":{
-        "empresa":"MaerskExpress",
-        "precio":250,
+        "empresa":"MaerskAduanas",
+        "precio":2450,
         "horario":"11:00",
         "promocion":"10%"
         }

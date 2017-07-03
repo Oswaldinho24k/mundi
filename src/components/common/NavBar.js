@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import FontAwesome from 'react-fontawesome';
 import {Link} from 'react-router-dom';
+
 import {Popover, Button, message} from 'antd';
 import LogIn from '../users/LogIn';
 import firebase from '../../firebase';
@@ -29,7 +30,7 @@ class NavBar extends Component{
   logOut=()=>{
     firebase.auth().signOut().then(()=> {
       message.success('Vuelve pronto ;)')
-      
+
     }, (error)=> {
       // An error happened.
     });
@@ -42,6 +43,7 @@ class NavBar extends Component{
     <div>
      <nav style={styles.nav}>
          <Link to="/">
+
            <h2
                style={{
                    color:'#66bb6a',
@@ -54,6 +56,8 @@ class NavBar extends Component{
            >Mundi</h2>
          </Link>
          <div
+
+
            style={ancho ? styles.noShow:styles.icons}>
             <FontAwesome
                 style={styles.icon}
@@ -165,7 +169,8 @@ const styles = {
         width:'100%',
         height:'64px',
         backgroundColor:'black',
-        padding:'17px 20px 0 40px'
+        padding:'17px 20px 0 40px',
+        zIndex:999
     },
     icon:{
         color:'white',

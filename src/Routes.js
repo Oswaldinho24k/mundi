@@ -5,6 +5,9 @@ import LogIn from './components/users/LogIn';
 import Register from './components/users/Registry';
 import UserProfile from './components/users/ProfilePage';
 import ExpoDetail from './components/exportaciones/ExpDetail';
+import Landing from './components/steps/Landing';
+
+
 
 const Routes = () => (
     <Switch>
@@ -14,7 +17,8 @@ const Routes = () => (
         <Route path="/userprofile" component={UserProfile}/>
         <Route path="/exportaciones/:expId" component={ExpoDetail}/>
         <Route path="/" component={HomePage} />
-
+        <Route exact path="/" component={HomePage} />
+        <Route path="/reserva" component={Landing} />
 
     </Switch>
 );

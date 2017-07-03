@@ -42,7 +42,7 @@ class Selector extends Component{
       this.setState({loading:true}) 
       setTimeout(()=>{this.setState({
           loading:false});
-            message.warning('no encontramos reservas', 3);
+            message.success('Hemos encontrado reservas para ti', 3);
         localStorage.setItem('reserva', JSON.stringify(this.state.reserva));
             this.props.history.push('/reserva')
                       

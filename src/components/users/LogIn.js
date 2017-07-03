@@ -5,16 +5,33 @@ import firebase from '../../firebase';
 
 
 
+
 class PaswordRecover extends Component{
+  state={
+    email:''
+  }
+  manageMail=(e)=>{
+    this.setState({email:e.target.value})
+  }
   recover=()=>{
-    message.success('Recibiràs un correo para recuperar tu contraseña')
+
+    let auth = firebase.auth();
+    let emailAddress = this.state.email;
+
+    auth.sendPasswordResetEmail(emailAddress).then(()=> {
+      message.success('Se ha enviado un correo a '+emailAddress+' para recuperar la contraseña')
+    }).catch((error)=> {
+      message.error(error)
+    });
   }
   render(){
     return(
       <div style={{textAlign:'center'}}>
         <Form>
           <Form.Item>
-              <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="email" />
+              <Input
+                onChange={this.manageMail}
+                prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="email" />
           </Form.Item>
           <Form.Item>
                 <Button
@@ -60,10 +77,14 @@ class LogIn extends Component{
     let pass = this.state.user.pass
     firebase.auth().signInWithEmailAndPassword(mail, pass).then(()=>{
       message.success('Bienvenido '+ mail)
-      this.props.history.push('/')
+      this.props.history.goBack()
+
+
     }).catch((error)=> {
       message.error('Algo está mal, intenta de nuevo')
     });
+
+
 
 
   }

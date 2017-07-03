@@ -1,11 +1,39 @@
 import React, {Component} from 'react';
 import FontAwesome from 'react-fontawesome';
-import {Avatar} from 'antd';
+import {Link} from 'react-router-dom';
+import {Popover, Button, message} from 'antd';
+import LogIn from '../users/LogIn';
+import firebase from '../../firebase';
 
 
 
 class NavBar extends Component{
 
+
+  state={
+    logged:false,
+    user:{
+      email:''
+    }
+  }
+  componentWillMount(){
+    firebase.auth().onAuthStateChanged((user) =>{
+      if (user) {
+        this.setState({logged:true, user})
+      } else {
+        this.setState({logged:false})
+      }
+    });
+
+  }
+  logOut=()=>{
+    firebase.auth().signOut().then(()=> {
+      message.success('Vuelve pronto ;)')
+      
+    }, (error)=> {
+      // An error happened.
+    });
+  }
 
 
     render(){
@@ -13,16 +41,18 @@ class NavBar extends Component{
         return(
     <div>
      <nav style={styles.nav}>
-         <h2
-             style={{
-                 color:'#66bb6a',
-                display:'inline-block',
-                 padding:0,
-                 margin:0,
-                fontSize:'1.3rem',
-                    marginRight:'10px'
-             }}
-         >Mundi</h2>
+         <Link to="/">
+           <h2
+               style={{
+                   color:'#66bb6a',
+                  display:'inline-block',
+                   padding:0,
+                   margin:0,
+                  fontSize:'1.3rem',
+                      marginRight:'10px'
+               }}
+           >Mundi</h2>
+         </Link>
          <div
            style={ancho ? styles.noShow:styles.icons}>
             <FontAwesome
@@ -63,10 +93,39 @@ class NavBar extends Component{
          {" | "}
          </div>
 
-           <span style={{
-                    color:'grey',
-                   fontSize:'1rem'
-                }}>Perfil</span>
+         {this.state.logged?
+
+             <Popover
+               title={'Usuario: '+ this.state.user.email}
+               placement="bottomLeft"
+               content={
+                 <div>
+                   <Link to="/userprofile">
+                     <p>Perfil</p>
+                   </Link>
+                   <Link to="" onClick={this.logOut}>
+                     <p>Salir</p>
+                   </Link>
+                 </div>
+               }  trigger="hover">
+               <span style={{color:'grey',fontSize:'1rem'}}>Perfil</span>
+             </Popover>
+              :
+              <Link to="/login">
+                    <span
+                      style={{
+                             color:'grey',
+                            fontSize:'1rem'
+                         }}>Inicia</span>
+             </Link>
+
+          }
+
+
+
+
+
+
 
 
          </div>

@@ -39,13 +39,16 @@ class Registro extends Component{
     let mail = this.state.nuevo.email
     let pass = this.state.nuevo.pass
     let user = this.state.nuevo
-    firebase.auth().createUserWithEmailAndPassword(mail, pass).then(()=>{
+    firebase.auth().createUserWithEmailAndPassword(mail, pass).then((res)=>{
 
-      firebase.database().ref('/users').push(user)
+      firebase.database().ref('users/'+res.uid).set({email:mail})
+      message.success('Registro exitoso')
+      this.props.history.push('/')
+    }).catch((error)=>{
+      message.error('parece que ese correo ya se registró')
     })
 
-    message.success('Registro exitoso')
-    this.props.history.push('/logIn')
+
 
   }
   render(){
@@ -98,7 +101,7 @@ class Registro extends Component{
             </Form.Item>
             <Form.Item
               {...formItemLayout}
-              label="Confirm Password"
+              label="Confirm"
               hasFeedback
             >
               {getFieldDecorator('confirm', {

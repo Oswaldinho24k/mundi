@@ -11,15 +11,57 @@ const TabPane = Tabs.TabPane;
 class Selector extends Component{
     
     state = {
-      loading:false  
+        loading:false,
+        reserva:{
+            origen:'',
+            destino:'',
+            fecha:'',
+            notificar:false
+        }
+    };
+
+    onChange = (e, a) => {
+        let reserva = this.state.reserva;
+        console.log(typeof e);
+        console.log(typeof a);
+        console.log(e);
+        console.log(a);
+        const field = e.target.name;
+        reserva[field] = e.target.value;
+        this.setState({reserva});
+    };
+
+    onAutocomplete = (value, label) =>{
+        let reserva = this.state.reserva;
+        reserva[label] = value;
+        this.setState({reserva});
     };
     
     onSearch = () => {
+        console.log(this.state.reserva);
       this.setState({loading:true}) 
       setTimeout(()=>{this.setState({
           loading:false});
             message.warning('no encontramos reservas', 3);
+        localStorage.setItem('reserva', JSON.stringify(this.state.reserva));
+            this.props.history.push('/reserva')
+                      
                      },3000);
+        
+    };
+
+    onChecked = (e) => {
+        let reserva = this.state.reserva;
+        const field = e.target.name;
+        reserva[field] = e.target.checked;
+        console.log(e.target.checked)
+        this.setState({reserva});
+    };
+
+    onDate = (a,b) => {
+        let reserva = this.state.reserva;
+        reserva['fecha'] = b;
+        this.setState({reserva});
     };
     
     render(){
@@ -32,12 +74,26 @@ class Selector extends Component{
         <TabPane 
       style={{color:'white'}}
          tab={<span><Icon type="global" />Barco</span>} key="1">
-        <Barco loading={this.state.loading} onSearch={this.onSearch}/>
+        <Barco 
+        loading={this.state.loading} 
+        onSearch={this.onSearch}
+        onChange={this.onChange}
+        onAutocomplete={this.onAutocomplete}
+        onChecked={this.onChecked}
+        onDate={this.onDate}
+        />
      </TabPane>
         <TabPane 
         style={{color:'white'}}
          tab={<span><Icon type="rocket" />Avión</span>} key="2">
-        <Avion/>
+        <Avion
+            loading={this.state.loading} 
+            onSearch={this.onSearch}
+            onChange={this.onChange}
+            onAutocomplete={this.onAutocomplete}
+            onChecked={this.onChecked}
+            onDate={this.onDate}
+        />
         </TabPane>
         <TabPane 
         style={{color:'white'}}

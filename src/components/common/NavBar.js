@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import FontAwesome from 'react-fontawesome';
-
+import {Link} from 'react-router-dom';
 
 
 class NavBar extends Component{
@@ -9,6 +9,7 @@ class NavBar extends Component{
         return(
     <div>
      <nav style={styles.nav}>
+         <Link to="/">
          <h2
              style={{
                  color:'#66bb6a',
@@ -18,7 +19,13 @@ class NavBar extends Component{
                 fontSize:'1.3rem',
                     marginRight:'10px'
              }}
-         >Mundi</h2>
+         >
+        
+             Mundi
+        
+         
+         </h2>
+          </Link>
          <div 
            style={ancho ? styles.noShow:styles.icons}>
             <FontAwesome 
@@ -94,7 +101,8 @@ const styles = {
         width:'100%',
         height:'64px',
         backgroundColor:'black',
-        padding:'17px 20px 0 40px'
+        padding:'17px 20px 0 40px',
+        zIndex:999
     },
     icon:{
         color:'white', 

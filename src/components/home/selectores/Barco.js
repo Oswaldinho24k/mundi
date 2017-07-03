@@ -36,12 +36,17 @@ const Barco = (props) => (
             Destino
         </p>
         <AutoComplete
+        label="origen"
+        name="origen"
+        onChange={(e)=>props.onAutocomplete(e, "origen")}
       style={{ width: '50%' }}
       dataSource={origenes}
       placeholder="Escribe el Origen"
       filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
     />
         <AutoComplete
+        name="destino"
+        onChange={(e)=>props.onAutocomplete(e, "destino")}
       style={{ width: '50%' }}
       dataSource={destinos}
       placeholder="Escribe el Destino"
@@ -57,13 +62,18 @@ const Barco = (props) => (
             Embarque él:
         </p>
         <DatePicker
+          name="fecha"
            defaultValue={moment('01-12-2017', 'DD-MM-YYYY')}
            locale={en}
             style={{width:'50%'}}
-          onChange={onChange} />
+          onChange={props.onDate} />
           <div style={styles.divider} />
           <Radio>Solicitar Pedido Especial</Radio>
-            <Checkbox onChange={onChange}>Notificarme</Checkbox>
+            <Checkbox 
+                name="notificar"
+                onChange={props.onChecked}>
+            Notificarme
+            </Checkbox>
             
             <div style={styles.divider} />
             

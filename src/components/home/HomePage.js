@@ -10,7 +10,7 @@ class HomePage extends Component{
         return(
         <div style={styles.portada}>
            <div style={styles.mainSelect}>
-            <Selector/>
+            <Selector history={this.props.history} />
            </div>
            <div style={ancho ? styles.noShow:styles.secondSelect}></div>
            <Slider />

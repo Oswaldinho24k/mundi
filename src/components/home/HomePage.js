@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import Slider from '../common/Slider';
 import firebase from '../../firebase';
 import Selector from './Selector';
+import Background from '../common/Background';
+import logo from '../../assets/mundi.png';
+import {Button} from 'antd';
+
 
 
 class HomePage extends Component{
@@ -10,12 +14,21 @@ class HomePage extends Component{
     render(){
         const ancho = document.documentElement.clientWidth < 600
         return(
-        <div style={styles.portada}>
-           <div style={styles.mainSelect}>
-            <Selector history={this.props.history} />
-           </div>
-           <div style={ancho ? styles.noShow:styles.secondSelect}></div>
-           <Slider />
+        <div>
+          <Background/>
+          <div style={styles.portada}>
+            <img style={styles.logo} src={logo} alt="logo"/>  
+            <h1 style={styles.titulo}>
+                  EXPORTA A TODO EL MUNDO EN UN PAR DE CLICS
+             </h1>
+             <Button
+                 ghost
+                 style={styles.action}
+             >
+             Comenzar
+             </Button>
+              
+          </div>
         </div>
         );
     }
@@ -23,7 +36,25 @@ class HomePage extends Component{
 
 const styles = {
     portada:{
-        position:'relative'
+        textAlign:'center',
+        paddingTop:'20%'
+    },
+    titulo:{
+        fontSize: '1.8rem',
+        color:'white',
+        padding:'10px',
+        marginBottom:'50px'
+    },
+    logo:{
+        maxWidth: '300px',
+        width: '100%'
+    },
+    action:{
+        paddingLeft:'50px',
+        paddingRight:'50px',
+        fontSize:'1.5rem',
+        paddingBottom:'40px',
+        marginBottom:'50px'
     },
     mainSelect:{
         position:'absolute',

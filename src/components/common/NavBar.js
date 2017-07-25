@@ -56,8 +56,6 @@ class NavBar extends Component{
            >Mundi</h2>
          </Link>
          <div
-
-
            style={ancho ? styles.noShow:styles.icons}>
             <FontAwesome
                 style={styles.icon}

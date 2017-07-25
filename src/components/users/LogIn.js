@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Form, Icon, Input,Card,  Button, message, Popover } from 'antd';
 import {Link} from 'react-router-dom';
 import firebase from '../../firebase';
-
+import Background from '../common/Background';
 
 
 
@@ -91,6 +91,10 @@ class LogIn extends Component{
   render(){
 
     return(
+        <div>
+            <Background/>
+
+       
       <div style={{padding:'10% 30%', textAlign:'center'}}>
         <Card title="Inicia Sesión">
           <Form onSubmit={this.handleSubmit} className="login-form">
@@ -128,6 +132,11 @@ class LogIn extends Component{
         </Form>
       </Card>
       </div>
+      
+      
+      
+              </div>
+
     );
   }
 }

@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import Slider from '../common/Slider';
 import firebase from '../../firebase';
 import Selector from './Selector';
 import Background from '../common/Background';
 import logo from '../../assets/mundi.png';
 import {Button} from 'antd';
+
 
 
 
@@ -21,12 +23,15 @@ class HomePage extends Component{
             <h1 style={styles.titulo}>
                   EXPORTA A TODO EL MUNDO EN UN PAR DE CLICS
              </h1>
-             <Button
+             <Link to="/reserva">
+                 <Button
                  ghost
                  style={styles.action}
              >
              Comenzar
              </Button>
+             </Link>
+             
               
           </div>
         </div>
@@ -37,7 +42,7 @@ class HomePage extends Component{
 const styles = {
     portada:{
         textAlign:'center',
-        paddingTop:'20%'
+        paddingTop:'100px'
     },
     titulo:{
         fontSize: '1.8rem',

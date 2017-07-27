@@ -4,8 +4,57 @@
 /*    border-top: none;*/
     display: inline-block;
     cursor: pointer;
+    color:grey;
+    font-size: 1rem;
 }
 .img-button:hover{
+    color:black;
     box-shadow: 2px 2px 2px 2px #888888;
 /*    border-top: 1px dashed black;*/
+}
+
+.afuera{
+    transform: translateY(1000px);
+    opacity: 0;
+}
+
+.salir {
+     animation: salida .3s ease-in;
+/*
+    transform: translateY(-1000px);
+    transition: all 0.6s ease-in;
+*/
+}
+
+.entrar {
+/*
+    transform: translateY(-100px);
+    transition: all 0.6s ease-in;
+    opacity:1;    
+*/
+    animation: entrada .3s ease-out;
+}
+
+
+
+@keyframes salida{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-500px);
+        opacity: 0;
+    }
+}
+
+@keyframes entrada{
+    0%{
+        transform: translateY(500px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }

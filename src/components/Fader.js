@@ -5,7 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 const Fader = ({children}) => (
         <ReactCSSTransitionGroup
-          transitionName="fade"
+          transitionName="trans"
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={1}>
           {children}

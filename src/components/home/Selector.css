@@ -1,0 +1,11 @@
+.img-button{
+    transition: all 0.2s ease-in;
+    padding:20px;
+/*    border-top: none;*/
+    display: inline-block;
+    cursor: pointer;
+}
+.img-button:hover{
+    box-shadow: 2px 2px 2px 2px #888888;
+/*    border-top: 1px dashed black;*/
+}

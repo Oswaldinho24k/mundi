@@ -33,6 +33,16 @@ const Routes = ({location}) => (
               path="/reserva"
               component={Selector}
             />
+        <Route 
+                path="/register" 
+                component={Register} 
+            />
+         
+         <Route 
+             path="/userprofile"
+             component={UserProfile}
+            />
+         
         </Switch>
 
       </Fader>

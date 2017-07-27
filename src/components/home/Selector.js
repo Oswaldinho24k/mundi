@@ -124,6 +124,7 @@ class Selector extends Component{
 
 const styles = {
     container:{
+        overflow:'hidden',
         minWidth:'100%',
         minHeight:'70vh',
         width:'auto',

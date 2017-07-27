@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import Type from './selectores/Type';
 import './Selector.css';
 
 const container = "https://kontainers.io/assets/images/container-04f1fc2e68c6c0f906a05b282a408809.png";
@@ -60,8 +60,8 @@ class Selector extends Component{
         entrada:'',
         salida:'',
         clase:'',
-        display:1,
-        current:1
+        display:2,
+        current:2
     };
     
     click = () => {
@@ -101,18 +101,24 @@ class Selector extends Component{
                 style={styles.middle}  
             >
               
-               {display === 1 && <Containers 
+               {display === 1 && 
+                   <Containers 
               class={clase} 
               click={this.click}/>}
-               {display === 2 && <Test 
+               {display === 2 && 
+                   <Type 
               class={clase} 
               click={this.click}/>}
-              {display === 3 && <Containers 
+                {display === 3 && 
+                   <Containers 
               class={clase} 
               click={this.click}/>}
-               {display === 4 && <Test 
+               {display === 4 && 
+                   <Type 
               class={clase} 
               click={this.click}/>}
+              
+
            
               
            </article>

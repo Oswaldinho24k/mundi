@@ -42,6 +42,10 @@ const Routes = ({location}) => (
              path="/userprofile"
              component={UserProfile}
             />
+            
+        <Route 
+                path="/exportaciones/:expId"     component={ExpoDetail}
+            />
          
         </Switch>
 

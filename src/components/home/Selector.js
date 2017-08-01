@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Type from './selectores/Type';
 import './Selector.css';
+import From from './selectores/From';
 
 const container = "https://kontainers.io/assets/images/container-04f1fc2e68c6c0f906a05b282a408809.png";
 const less = "https://kontainers.io/assets/images/pallet-0c751549b36bb2909aada2c8108f5558.png"
@@ -60,8 +61,8 @@ class Selector extends Component{
         entrada:'',
         salida:'',
         clase:'',
-        display:2,
-        current:2
+        display:3,
+        current:3
     };
     
     click = () => {
@@ -110,7 +111,7 @@ class Selector extends Component{
               class={clase} 
               click={this.click}/>}
                 {display === 3 && 
-                   <Containers 
+                   <From 
               class={clase} 
               click={this.click}/>}
                {display === 4 && 

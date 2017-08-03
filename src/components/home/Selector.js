@@ -59,8 +59,8 @@ class Selector extends Component{
         entrada:'',
         salida:'',
         clase:'',
-        display:7,
-        current:7,
+        display:1,
+        current:1,
         loading:true
     };
 

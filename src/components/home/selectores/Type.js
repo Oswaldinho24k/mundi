@@ -103,7 +103,7 @@ const styles = {
     option: {
         backgroundColor:'#F0F0F0',
         padding:'40px',
-        width:document.documentElement.clientWidth < 600 ? '100%':'60%',
+        width:document.documentElement.clientWidth < 600 ? '100%':'80%',
         margin:'0 auto',
         borderRadius:'5px',
         marginBottom:'30px',

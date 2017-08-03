@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon, Spin} from 'antd';
 
 
-class From extends React.Component{
+class To extends React.Component{
     
     state = {
         from:'',
@@ -50,7 +50,7 @@ class From extends React.Component{
         return(
             <div 
               className={this.props.class}>
-               <h2>¿Desde donde Exportas?: </h2>
+               <h2>¿A donde Exportas?: </h2>
                 <input
                   onChange={this.onChange}
                    style={styles.input}
@@ -90,4 +90,4 @@ const styles = {
    }
 }
 
-export default From;
+export default To;

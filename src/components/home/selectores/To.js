@@ -39,7 +39,7 @@ class To extends React.Component{
         setTimeout(()=>{
             this.setState({list:result, loading:false});
             
-        }, 2000);
+        }, 1000);
         
         
     }

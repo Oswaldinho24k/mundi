@@ -48,7 +48,7 @@ class Quantity extends Component{
     };
 
     render(){
-        const {click} = this.props;
+        const {click, loading} = this.props;
         const {pressed, chico, grande, val} = this.state;
         return(
             <div className={this.props.class}>
@@ -76,8 +76,8 @@ class Quantity extends Component{
                         onChange={this.changeNumber}/>
                     <Button 
                     type="primary" 
-                    onClick={click}
-                    loading={chico || grande ? false: true}
+                    onClick={this.props.changeLoading}
+                    loading={chico || grande || loading ? false: true}
                     icon="search">
                         Buscar Opciones
                     </Button>

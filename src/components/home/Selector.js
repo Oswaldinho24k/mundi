@@ -6,8 +6,8 @@ import To from './selectores/To';
 import Date from './selectores/Date';
 import Quantity from './selectores/Quantity';
 import ImgButton from './ImgButton';
-
-
+import Cargando from '../common/Cargando';
+import Results from './selectores/Results';
 
 
 const container = "https://kontainers.io/assets/images/container-04f1fc2e68c6c0f906a05b282a408809.png";
@@ -59,12 +59,30 @@ class Selector extends Component{
         entrada:'',
         salida:'',
         clase:'',
-        display:1,
-        current:1
+        display:7,
+        current:7,
+        loading:true
+    };
+
+    componentDidMount(){
+        setTimeout(()=>{
+            this.setState({loading:false});
+        }, 2000);
+        
+    }
+
+    changeLoading = () => {
+        this.setState({loading:!this.state.loading});
+        
+        setTimeout(()=>{
+            this.click();
+            this.setState({loading:!this.state.loading});
+            
+        }, 4000);
     };
     
     click = () => {
-    if (this.state.current < 6){
+    if (this.state.current < 7){
         this.setState({
             current:this.state.current+1
         });
@@ -91,11 +109,13 @@ class Selector extends Component{
     
     
   render(){
-      const { clase, display} = this.state;
+      const { clase, display, loading} = this.state;
+      console.log(loading);
       return(
         <section
             style={styles.container}       
         >
+            <Cargando loading={loading} />
            <article
                 style={styles.middle}  
             >
@@ -123,7 +143,18 @@ class Selector extends Component{
               {display === 6 && 
                    <Quantity 
               class={clase} 
-              click={this.click}/>}
+              click={this.click}
+              changeLoading={this.changeLoading}
+              loading={loading}
+              />}
+
+               {display === 7 && 
+                   <Results 
+              class={clase} 
+              click={this.click}
+              changeLoading={this.changeLoading}
+              loading={loading}
+              />}
               
 
            

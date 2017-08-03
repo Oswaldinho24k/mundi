@@ -59,8 +59,8 @@ class Selector extends Component{
         entrada:'',
         salida:'',
         clase:'',
-        display:6,
-        current:6
+        display:1,
+        current:1
     };
     
     click = () => {

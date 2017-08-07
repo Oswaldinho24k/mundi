@@ -15,6 +15,19 @@
 /*    border-top: 1px dashed black;*/
 }
 
+.img-pressed{
+    box-shadow: inset 2px 2px 8px #888888;
+    border-radius: 5px;
+    padding:20px;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    color:grey;
+    background-color:lightsteelblue;
+    display: inline-block;
+
+
+}
+
 .afuera{
     transform: translateY(1000px);
     opacity: 0;
@@ -36,6 +49,94 @@
     animation: entrada .3s ease-out;
 }
 
+/* From */
+
+.list-element{
+    padding:18px 18px 14px;
+    width: 300px;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.list-element:hover{
+    background-color: #2ba6b3;
+    color:white;
+    cursor: pointer;
+}
+
+.list-element span{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Quantity */
+
+.cantidad {
+    padding:30px;
+    background-color: lightsteelblue;
+    width: 80%;
+    margin:0 auto;
+    transition: all 0.2s ease-in;
+    animation:crecer 0.3s ease-in 1;
+    border-radius: 4px;
+
+
+}
+.cantidad h3{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.tipo{
+    padding:10px 30px 10px 30px;
+    background-color: lightsteelblue;
+    width: 80%;
+    margin:0 auto;
+    transition: all 0.2s ease-in;
+    animation:crecer 0.3s ease-in 1;
+    margin-top: 5px;
+    border-radius: 4px;
+}
+.tipo h4{
+    font-style: italic;
+}
+
+/* Results */
+
+.tabla-results td {
+    /* border: 1px solid black; */
+    /* border-right: 1px solid grey; */
+    box-shadow: 2px 2px 2px 1px #888888;
+    border-radius: 4px;
+
+    
+}
+.tabla-results tr:hover {
+    /* border: 1px solid black; */
+    /* border-right: 1px solid grey;
+    box-shadow: inset 2px 2px 8px #888888;
+    border-radius: 4px; */
+    
+}
+.tabla-results th {
+    /* border: 1px solid black; */
+    /* border-collapse: collapse; */
+}
+.tabla-results {
+    /* border: 1px solid black; */
+    margin:0 auto;
+     border-collapse: collapse; 
+
+}
+
+.tabla-results th, .tabla-results td{
+    padding:10px;
+}
+
+.tabla-results tr{
+    /* box-shadow: inset 2px 2px 8px #888888; */
+    border-radius: 4px;
+}
 
 
 @keyframes salida{
@@ -59,3 +160,16 @@
         opacity: 1;
     }
 }
+
+@keyframes crecer{
+    0%{
+        transform: scaleY(0);
+        transform-origin: 100% 0%;
+    }
+    100%{
+        transform: scaleY(1);
+        transform-origin: 100% 0%;
+    }
+}
+
+

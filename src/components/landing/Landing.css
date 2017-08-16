@@ -1,0 +1,62 @@
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+} 
+.section_lan{
+	width: 500px;
+	flex-grow: 1;
+	padding: 2%;
+	font-size: 15px;
+}
+.section_serv{
+	width: 400px;
+	flex-grow: 1;
+	padding: 2%;
+}
+.section_partners{
+	width: 220px;
+	flex-grow: 1;
+	padding: 2%;
+}
+.partner_img{
+	width: 60%;
+	margin-left: 20%;
+}
+.linea{
+	width: 70px;
+	background-color: #108ee9;
+	height: 2px;
+	border:none;
+}
+.linea_dos{
+	width: 210px;
+	background-color: #108ee9;
+	height: 2px;
+	border:none;
+}
+.log img{
+	width: 100%;
+
+}
+.caja{
+	height: 120px;
+	display: table-cell;
+	vertical-align: middle;
+}
+.text_about{
+	padding: 0% 10% 5% 10%;
+	font-size: 18px;
+	text-align: justify;
+}
+.tab span{
+	font-size: 22px;
+}
+.tab p{
+	font-size: 13px;
+}
+.tab h3{
+	font-size: 20px;
+}
+.tab h4{
+	font-size: 15px;
+}

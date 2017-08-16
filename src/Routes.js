@@ -7,6 +7,7 @@ import UserProfile from './components/users/ProfilePage';
 import ExpoDetail from './components/exportaciones/ExpDetail';
 import Selector from './components/home/Selector';
 import Fader from './components/Fader';
+import Landing from './components/landing/Landing';
 import { RouteTransition } from 'react-router-transition';
 
 
@@ -45,6 +46,11 @@ const Routes = ({location}) => (
             
         <Route 
                 path="/exportaciones/:expId"     component={ExpoDetail}
+            />
+
+        <Route
+                path="/landing" 
+                component={Landing}
             />
          
         </Switch>

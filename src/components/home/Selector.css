@@ -125,7 +125,10 @@
 .tabla-results {
     /* border: 1px solid black; */
     margin:0 auto;
-     border-collapse: collapse; 
+     /* border-collapse: collapse;  */
+     border-collapse:separate; 
+     border-spacing:0em 1.3em;
+
 
 }
 
@@ -137,6 +140,7 @@
     /* box-shadow: inset 2px 2px 8px #888888; */
     border-radius: 4px;
 }
+
 
 
 @keyframes salida{

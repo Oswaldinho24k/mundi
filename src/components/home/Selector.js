@@ -8,7 +8,7 @@ import Quantity from './selectores/Quantity';
 import ImgButton from './ImgButton';
 import Cargando from '../common/Cargando';
 import Results from './selectores/Results';
-
+import SideBar from './selectores/SideBar';
 
 const container = "https://kontainers.io/assets/images/container-04f1fc2e68c6c0f906a05b282a408809.png";
 const less = "https://kontainers.io/assets/images/pallet-0c751549b36bb2909aada2c8108f5558.png"
@@ -59,7 +59,7 @@ class Selector extends Component{
         entrada:'',
         salida:'',
         clase:'',
-        display:1,
+        display:7,
         current:1,
         loading:true
     };
@@ -89,7 +89,6 @@ class Selector extends Component{
     } else{
         this.setState({current:1});
     }
-//        alert('puto');
         
         console.log(this.state.display);
         this.setState({
@@ -116,6 +115,9 @@ class Selector extends Component{
             style={styles.container}       
         >
             <Cargando loading={loading} />
+        
+           <SideBar/>
+            
            <article
                 style={styles.middle}  
             >

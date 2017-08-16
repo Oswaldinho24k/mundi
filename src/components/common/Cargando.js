@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import {Progress, Spin} from 'antd';
 import './Cargando.css';
 
 
@@ -11,22 +11,19 @@ class Cargando extends Component {
         visible:true
     }
 
-    // componentWillReceiveProps(props){
-    //     if(props.loading){
-    //         this.setState({loading:props.loading});
-    //         this.setState({visible:props.loading})
-    //     }
-    // }
+    componentWillMount(){
+        setInterval (()=>{
+            if (this.state.progress<110){
+                let time = this.state.progress;
+                this.setState({progress:time+1}); 
+            }
+           
+       }, 15);
+    }
 
-    // componentDidMount(){
-    //     console.log(this.props.loading);
-    //     this.setState({visible:this.props.loading});
-        
-    //     // setInterval(()=>{
-    //     //     this.setState({visible:!this.state.visible});
-    //     // }, 3000);
-    // }
-
+    componentWillUnmount(){
+        this.setState({progress:0});
+    }
     render(){
         const { progress, visible} = this.state;
         const {loading} = this.props;
@@ -35,12 +32,24 @@ class Cargando extends Component {
                 <div 
                     className="panel1"
                     style={!loading ? styles.noVisible:null}>
-                    <h3
+                    <div
+                       style={
+                            {
+                            position:'absolute',
+                            bottom:0,
+                            width:'100%'
+                            }
+                        }
+                       >
+                        <h3
                         style={styles.text}
-                    >Cargando</h3>
-                    <h3
-                        style={styles.text}
-                    >Progreso: {progress}</h3>
+                    >
+                        Cargando
+                    </h3>
+                        {progress<110 && <Progress 
+                    percent={progress}  />}
+                        {progress==110 && <Spin/>}
+                    </div>
                 </div>
                 <div 
                     className="panel2"

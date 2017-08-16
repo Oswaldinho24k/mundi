@@ -1,0 +1,19 @@
+.aparece{
+    font-size: 1rem;
+    transition:all 488ms ease;
+    animation: entrale 488ms ease-in-out 1;
+/*    transform: rotate(0deg);*/
+}
+
+@keyframes entrale{
+    0%{
+        transform: translateX(-200px);
+/*        transform: ;*/
+/*        opacity: 0;*/
+    }
+    100%{
+        transform: translateX(0px);
+/*        transform: translateX(200px);*/
+/*        opacity: 1;*/
+    }
+}

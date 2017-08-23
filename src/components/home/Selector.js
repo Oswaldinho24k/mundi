@@ -9,6 +9,8 @@ import ImgButton from './ImgButton';
 import Cargando from '../common/Cargando';
 import Results from './selectores/Results';
 import SideBar from './selectores/SideBar';
+import firebase from '../../firebase';
+import {message} from 'antd';
 
 const container = "https://kontainers.io/assets/images/container-04f1fc2e68c6c0f906a05b282a408809.png";
 const less = "https://kontainers.io/assets/images/pallet-0c751549b36bb2909aada2c8108f5558.png"
@@ -25,11 +27,11 @@ const Containers = props => (
         <br/>
         <br/>
         <ImgButton 
-        click={props.click}
+        click={()=>{props.SetConsulta("container", "full"); props.click();}}
         img={container} 
         text="Full Container" />
-        <ImgButton 
-        click={props.click}
+        <ImgButton
+            click={()=>{props.SetConsulta("container", "less"); props.click();}}
         img={less} 
         text="Less than a  Container" />
     </div>
@@ -56,10 +58,8 @@ const Test = props => (
 class Selector extends Component{
     
     state = {
-        entrada:'',
-        salida:'',
-        clase:'',
-        display:7,
+        consulta:{},
+        display:1,
         current:1,
         loading:true
     };
@@ -75,10 +75,19 @@ class Selector extends Component{
         this.setState({loading:!this.state.loading});
         
         setTimeout(()=>{
+            this.doSearch(this.state.consulta);
             this.click();
             this.setState({loading:!this.state.loading});
             
         }, 4000);
+    };
+
+    //Por ahora doSearch guarda en firebase solamente.
+    doSearch = (data) => {
+        firebase.database().ref('busquedas')
+            .push(data)
+                .then(r=>message.success("Tu busqueda se guardó"))
+                .catch(e=>message.error("Algo muy malo pasó"));
     };
     
     click = () => {
@@ -90,7 +99,7 @@ class Selector extends Component{
         this.setState({current:1});
     }
         
-        console.log(this.state.display);
+        //console.log(this.state.display);
         this.setState({
             clase:'salir'
         });
@@ -101,49 +110,68 @@ class Selector extends Component{
                 clase:'entrar'
             });
             
-            console.log(this.state.display);
+            // console.log(this.state.display);
         }, 200);
-        console.log(this.state.display)
+       // console.log(this.state.display)
+    };
+
+    changeCurrent=(number)=>{
+        this.setState({display:number, current:number});
+    };
+
+    SetConsulta = (field, data) => {
+        let consulta = this.state.consulta;
+        consulta[field] = data;
+        this.setState({consulta});
+        console.log(this.state.consulta);
     };
     
     
   render(){
       const { clase, display, loading} = this.state;
-      console.log(loading);
+     // console.log(loading);
       return(
         <section
             style={styles.container}       
         >
             <Cargando loading={loading} />
         
-           <SideBar/>
+           <SideBar
+               changeCurrent={this.changeCurrent}
+               display={display}/>
             
            <article
                 style={styles.middle}  
             >
               
                {display === 1 && 
-                   <Containers 
+                   <Containers
+                       SetConsulta={this.SetConsulta}
               class={clase} 
               click={this.click}/>}
                {display === 2 && 
-                   <Type 
+                   <Type
+                       SetConsulta={this.SetConsulta}
               class={clase} 
               click={this.click}/>}
                 {display === 3 && 
-                   <From 
+                   <From
+                       SetConsulta={this.SetConsulta}
               class={clase} 
               click={this.click}/>}
                {display === 4 && 
-                   <Date 
+                   <Date
+                       SetConsulta={this.SetConsulta}
               class={clase} 
               click={this.click}/>}
               {display === 5 && 
-                   <To 
+                   <To
+                       SetConsulta={this.SetConsulta}
               class={clase} 
               click={this.click}/>}
               {display === 6 && 
-                   <Quantity 
+                   <Quantity
+                       SetConsulta={this.SetConsulta}
               class={clase} 
               click={this.click}
               changeLoading={this.changeLoading}

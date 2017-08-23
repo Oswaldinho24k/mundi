@@ -19,7 +19,7 @@ const firstChild = props => {
 
 const Routes = ({location}) => (
 
-          <Fader>
+
        <Switch key={location.pathname} pathname={location.pathname}>  
        <Route
              exact
@@ -55,7 +55,7 @@ const Routes = ({location}) => (
          
         </Switch>
 
-      </Fader>
+
 
    
 

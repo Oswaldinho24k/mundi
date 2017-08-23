@@ -30,7 +30,7 @@ class To extends React.Component{
         ],
         list:[],
         loading:false
-    }
+    };
     
     onChange = (e) => {
         let result = this.state.result;
@@ -42,11 +42,11 @@ class To extends React.Component{
         }, 1000);
         
         
-    }
+    };
 
     render(){
         const {loading, list} = this.state;
-        const {click} = this.props;
+        const {click, SetConsulta} = this.props;
         return(
             <div 
               className={this.props.class}>
@@ -63,7 +63,7 @@ class To extends React.Component{
                     {list.map(
                         l=><li 
                             key={l.id}
-                            onClick={click}
+                            onClick={()=>{SetConsulta("to", l);click()}}
                             className="list-element">
                             <Icon style={{paddingRight:15, fontSize:'1.2rem'}} type="environment"/>
                             <span>{l.nombre}, </span>

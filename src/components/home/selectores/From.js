@@ -46,7 +46,7 @@ class From extends React.Component{
 
     render(){
         const {loading, list} = this.state;
-        const {click} = this.props;
+        const {click, SetConsulta} = this.props;
         return(
             <div 
               className={this.props.class}>
@@ -63,7 +63,7 @@ class From extends React.Component{
                     {list.map(
                         l=><li 
                             key={l.id}
-                            onClick={click}
+                            onClick={()=>{SetConsulta("from", l);click()}}
                             className="list-element">
                             <Icon style={{paddingRight:15, fontSize:'1.2rem'}} type="environment"/>
                             <span>{l.nombre}, </span>

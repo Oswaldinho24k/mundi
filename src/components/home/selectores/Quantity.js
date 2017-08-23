@@ -15,7 +15,7 @@ class Quantity extends Component{
         val:0,
         chico:0,
         grande:0
-    }
+    };
 
     handlePress = (id) => {
         const {chico, grande} = this.state;
@@ -76,7 +76,7 @@ class Quantity extends Component{
                         onChange={this.changeNumber}/>
                     <Button 
                     type="primary" 
-                    onClick={this.props.changeLoading}
+                    onClick={()=>{this.props.SetConsulta("quantity", {chico:this.state.chico, grande:this.state.grande});this.props.changeLoading();}}
                     loading={chico || grande || loading ? false: true}
                     icon="search">
                         Buscar Opciones

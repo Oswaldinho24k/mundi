@@ -14,20 +14,22 @@ class Date extends Component{
 state = {
     value: moment('2017-01-25'),
     selectedValue: moment('2017-01-25'),
-  }
+  };
   onSelect = (value) => {
+
     this.setState({
       value,
       selectedValue: value,
     });
+    this.props.SetConsulta("date", moment(value).format());
     this.props.click();
-  }
+  };
   onPanelChange = (value) => {
     this.setState({ value });
-  }
+  };
 
     render(){
-        console.log(es)
+        console.log(es);
         const { value, selectedValue } = this.state;
     return (
       <div 

@@ -34,7 +34,7 @@ class Type extends React.Component{
     state = {
         style:styles.iconButton,
         selected:{danger:null,refri:null, detalles:null}
-    }
+    };
     
     select = (e) => {
         const field = e.currentTarget.getAttribute('name');
@@ -57,8 +57,9 @@ class Type extends React.Component{
                 return false;
             }
         }
+        this.props.SetConsulta("options",this.state.selected);
         this.props.click();
-    }
+    };
     
     render(){
         const {style, selected} = this.state;
@@ -103,7 +104,7 @@ const styles = {
     option: {
         backgroundColor:'#F0F0F0',
         padding:'40px',
-        width:document.documentElement.clientWidth < 600 ? '100%':'80%',
+        width:document.documentElement.clientWidth < 600 ? '100%':'60%',
         margin:'0 auto',
         borderRadius:'5px',
         marginBottom:'30px',

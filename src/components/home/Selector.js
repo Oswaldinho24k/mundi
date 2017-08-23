@@ -86,7 +86,10 @@ class Selector extends Component{
     doSearch = (data) => {
         firebase.database().ref('busquedas')
             .push(data)
-                .then(r=>message.success("Tu busqueda se guardó"))
+                .then(r=>{
+                    this.setState({searchId:r.key});
+                    message.success("Tu busqueda se guardó")
+                })
                 .catch(e=>message.error("Algo muy malo pasó"));
     };
     
@@ -97,6 +100,7 @@ class Selector extends Component{
         });
     } else{
         this.setState({current:1});
+        this.props.history.push('/pay/'+this.state.searchId);
     }
         
         //console.log(this.state.display);

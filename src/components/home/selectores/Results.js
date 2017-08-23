@@ -67,7 +67,7 @@ class Results extends Component{
                 price:'23300'
             }
         ]
-    }
+    };
 
     componentWillMount(){
         moment.locale('es');

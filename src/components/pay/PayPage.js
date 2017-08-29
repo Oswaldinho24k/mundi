@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import firebase from '../../firebase';
-import {Spin} from 'antd';
+import {Spin,Row,Col} from 'antd';
+import PaymentForm from '../payment/PaymentForm';
 
 
 class PayPage extends Component{
@@ -30,6 +31,11 @@ class PayPage extends Component{
                     <h1>Pago</h1>
                     <h2>Container: {busqueda.container}</h2>
                 </div> : <Spin/>}
+
+                <Row>
+                    <Col span={12}>col-12</Col>
+                    <Col span={12}><PaymentForm/></Col>
+                </Row>
             </div>
 
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {message, Row, Col, Upload, Button, Icon, Modal} from 'antd';
+import {message, Row, Col, Upload, Button, Icon, Modal,  Input} from 'antd';
 import firebase from '../../firebase';
 import './userprofile.css';
 
@@ -79,22 +79,51 @@ class EditProfile extends Component{
         }
       });
     };
+
+    editandoUser=(e)=>{
+      let usuario = this.state.usuario
+      let field = e.target.name
+      usuario[field]=e.target.value
+      this.setState({usuario})
+      console.log(this.state.usuario)
+    }
   render(){
     return(
       <div>
-      <Upload
-      multiple={false}
-      showUploadList={false}
-      onChange={this.onUpload}
-     >
+      <Row>
+        <Col span={8}>
+          <Upload
+          multiple={false}
+          showUploadList={false}
+          onChange={this.onUpload}
+         >
 
-        {
-          this.state.usuario.img ?
-            <img src={this.state.usuario.img}
-              alt="" className="avatar" /> :
-            <Icon type="plus" className="avatar-uploader-trigger" />
-        }
-      </Upload><br/>
+            {
+              this.state.usuario.img ?
+                <img src={this.state.usuario.img}
+                  alt="" className="avatar" /> :
+                <Icon type="plus" className="avatar-uploader-trigger" />
+            }
+          </Upload>
+        </Col>
+        <Col span={16}>
+          <Input
+            name="rsocial"
+           placeholder="Business Name"
+           onChange={this.editandoUser} />
+          <br/><br/>
+          <Input
+            name="telefono"
+           placeholder="Phone"
+           onChange={this.editandoUser} />
+          <br/><br/>
+          <Input
+            name="rfc"
+           placeholder="Tax ID"
+           onChange={this.editandoUser} />
+        </Col>
+      </Row>
+      <br/>
       <Button onClick={this.updateUser}>Guardar</Button>
       </div>
     );

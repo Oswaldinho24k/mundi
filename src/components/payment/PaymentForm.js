@@ -19,7 +19,7 @@ class PaymentForm extends React.Component{
         pago[campo] = e.target.value;
         console.log(pago);
         this.setState({pago});
-    } 
+    }
 
     render(){
 
@@ -43,37 +43,37 @@ class PaymentForm extends React.Component{
 
                 <Form className="form">
 
-                    <FormItem 
+                    <FormItem
                     className="form-item half"
                     label="Name on Card">
                         <Input name="client" onChange={this.handleChange}/>
                     </FormItem>
 
-                    <FormItem 
+                    <FormItem
                     className="form-item half"
                     label="Card number">
                         <Input name="card" onChange={this.handleChange}/>
                     </FormItem>
 
-                    <FormItem 
+                    <FormItem
                     className="form-item quarter"
                     label="Exp. Month">
                         <Input name="month" onChange={this.handleChange}/>
                     </FormItem>
 
-                    <FormItem 
+                    <FormItem
                     className="form-item quarter"
                     label="Exp. Year">
                         <Input name="year" onChange={this.handleChange}/>
                     </FormItem>
 
-                    <FormItem 
+                    <FormItem
                     className="form-item quarter"
                     label="Security Number">
                         <Input addonAfter={<Tooltip placement="top" title={<Info/>}><Icon type="question-circle" /></Tooltip>} name="security" onChange={this.handleChange}/>
                     </FormItem>
 
-                    <FormItem 
+                    <FormItem
                     className="form-item quarter"
                     label="Zip">
                         <Input name="zip" onChange={this.handleChange}/>

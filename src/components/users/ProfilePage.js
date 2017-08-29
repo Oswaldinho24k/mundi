@@ -5,6 +5,8 @@ import './userprofile.css';
 import EditProfile from './EditProfileForm';
 import {Link} from 'react-router-dom';
 import Files from './Files';
+import OrderPage from '../pay/OrderPage';
+
 
 
 
@@ -55,22 +57,27 @@ handleCancel = (e) => {
     });
   }
   render(){
-    const exportaciones = [{
-      id:1,
-      productos:5,
-      destino:'canadá',
-      intermediario:'maersk'
-    }, {
-      id:2,
-      productos:4,
-      destino:'japón',
-      intermediario:'maersk'
-    }, {
-      id:3,
-      productos:3,
-      destino:'méxico',
-      intermediario:'maersk'
-    }]
+    const exportaciones = [
+      {
+        container:'Full',
+        from:{
+          nombre:'Veracruz'
+        },
+        to:{
+          nombre:'Rome'
+        },
+        quantity:{
+          chico:0,
+          grande:1
+        },
+        date:"2017-01-13T00:00:00-06:00",
+        options:{
+          danger:true,
+          detalles:false,
+          refri:true
+        }
+      }
+    ]
     const imageUrl = this.state.imageUrl;
     return(
       <div style={{padding:'2%'}}>
@@ -119,9 +126,7 @@ handleCancel = (e) => {
                             <Panel header={exp.id} key="1">
                               <Tabs>
                                 <TabPane tab="Detail" key="1">
-                                  <p>intermediario:{exp.intermediario}</p>
-                                  <p>productos:{exp.productos}</p>
-                                  <p>destino:{exp.destino}</p>
+                                <OrderPage busqueda={exp}/>
                                 </TabPane>
                                 <TabPane tab="Docs" key="2">
                                 <Files user={this.state.user}/>

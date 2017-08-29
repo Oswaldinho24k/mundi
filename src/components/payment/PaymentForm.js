@@ -1,16 +1,40 @@
 import React from 'react';
-import {Input, Form, Icon, Button , Tooltip} from 'antd';
+import {Input, Form, Icon, Button , Tooltip , Modal} from 'antd';
 import './paymentForm.css';
+import LogInNonBack from '../users/LoginNonBack';
+import firebase from '../../firebase';
+
+
 const FormItem = Form.Item;
+
 
 class PaymentForm extends React.Component{
 
-    constructor(){
+    constructor(props){
         super()
         this.state = {
-            pago: {}
+            pago: {},
+            visible: false,
         }
     }
+
+    showModal = () =>{
+        this.setState({visible:true})
+    }
+
+
+    componentWillMount(){
+        firebase.auth().onAuthStateChanged((user)=> {
+        if (user) {
+            this.setState({user})
+            firebase.database().ref('users/'+user.uid).on('value', (snap)=>{
+            this.setState({usuario:snap.val()})
+            })
+        }
+        });
+        console.log(this.state.user)
+    }
+    
 
     handleChange = (e) =>{
         e.preventDefault();
@@ -19,7 +43,25 @@ class PaymentForm extends React.Component{
         pago[campo] = e.target.value;
         console.log(pago);
         this.setState({pago});
-    } 
+    }
+
+    handleOk = (e) => {
+        console.log(e);
+        this.setState({
+        visible: false,
+        });
+    }
+    handleCancel = (e) => {
+        console.log(e);
+        this.setState({
+        visible: false,
+        });
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.props.history.push("/userprofile");
+    }
 
     render(){
 
@@ -41,7 +83,7 @@ class PaymentForm extends React.Component{
                     <span className="american"></span>
                 </div>
 
-                <Form className="form">
+                <Form className="form" onSubmit={this.handleSubmit}>
 
                     <FormItem 
                     className="form-item half"
@@ -79,11 +121,24 @@ class PaymentForm extends React.Component{
                         <Input name="zip" onChange={this.handleChange}/>
                     </FormItem>
 
-                    <Button type="primary" htmlType="submit" size="large" className="pay-btn">
+                    <Button type="primary" htmlType="submit" size="large" className="pay-btn" disabled={this.state.user !== "undefined" ? false:true}>
                         Pagar
                     </Button>
 
+                    <Button type="primary" htmlType="button" size="large" className="pay-btn" onClick={this.showModal} disabled={this.state.user == "undefined"?false:true}>
+                        LogIn
+                    </Button>
+
                 </Form>
+
+                <Modal
+                title="Login"
+                visible={this.state.visible}
+                onOk={this.handleOk}
+                onCancel={this.handleCancel}>
+                    <LogInNonBack/>
+                </Modal>
+
             </div>
         );
     }

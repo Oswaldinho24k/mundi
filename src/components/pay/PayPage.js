@@ -34,7 +34,7 @@ class PayPage extends Component{
 
                 <Row>
                     <Col span={12}>col-12</Col>
-                    <Col span={12}><PaymentForm/></Col>
+                    <Col span={12}><PaymentForm order={this.state.searchId} history={this.props.history}/></Col>
                 </Row>
             </div>
 

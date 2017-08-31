@@ -14,6 +14,7 @@ class App extends Component {
     return (
 
 <section>
+
     <NavBar />
     <div style={{paddingTop:'64'}}>
        
@@ -22,11 +23,7 @@ class App extends Component {
     </LocaleProvider>
         
         
-        <Footer style={{ textAlign: 'center' }}>
-            Mundi  ©2017 Created by <a href="http://fixter.org">
-                Fixter.org
-            </a>
-        </Footer>
+        
     </div>
 
   </section>

@@ -16,7 +16,7 @@ class HomePage extends Component{
     render(){
         const ancho = document.documentElement.clientWidth < 600
         return(
-        <div>
+        <div style={styles.tabla}>
           <Background/>
           <div style={styles.portada}>
             <img style={styles.logo} src={logo} alt="logo"/>  
@@ -43,9 +43,12 @@ class HomePage extends Component{
 }
 
 const styles = {
+    tabla:{display:'table', textAlign:'center', height:'100vh', width:'100%'},
     portada:{
-        textAlign:'center',
-        paddingTop:'100px'
+        textAlign: 'center',
+        display: 'table-cell',
+        verticalAlign: 'middle'
+        // paddingTop:'200px'
     },
     titulo:{
         fontSize: '1.8rem',

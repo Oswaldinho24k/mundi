@@ -47,10 +47,21 @@ class NavBar extends Component{
           <img src={logo} className='log_box'/>
           
          </Link>
+
          <div
            style={ancho ? styles.noShow:styles.icons}>
          
             <div style={styles.icon}>
+                {" | "}
+                <Link to="/landing">
+                <span
+                    style={{
+                        color:'grey',
+                        fontSize:'1rem'
+                    }}>Sobre Mundi</span>
+
+                </Link>
+        
             {" | "}
             </div>
             <FontAwesome
@@ -116,6 +127,10 @@ class NavBar extends Component{
                      color:'grey',
                     fontSize:'1rem'
                  }}>(33)771-34-56</span>
+
+         </div>
+         <div>
+
 
          </div>
      </nav>

@@ -6,7 +6,7 @@ import Selector from './Selector';
 import Background from '../common/Background';
 import logo from '../../assets/log_mundi.png';
 import {Button} from 'antd';
-
+import Land from './Land';
 
 
 
@@ -16,6 +16,7 @@ class HomePage extends Component{
     render(){
         const ancho = document.documentElement.clientWidth < 600
         return(
+            <div>
         <div style={styles.tabla}>
           <Background/>
           <div style={styles.portada}>
@@ -23,6 +24,7 @@ class HomePage extends Component{
             <h1 className='title'>
                   "La forma más fácil de exportar e importar tus productos"
              </h1>
+
              <p className='slogan'>
              La plataforma gratuita más simple para exportar, importar y hacer tus envíos nacionales e internacionales al alcance de un clic
              </p>
@@ -34,10 +36,12 @@ class HomePage extends Component{
              Comenzar
              </Button>
              </Link>
-             
+
               
           </div>
-        </div>
+
+        </div>  <Land />
+            </div>
         );
     }
 }

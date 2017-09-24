@@ -11,6 +11,10 @@ import Results from './selectores/Results';
 import SideBar from './selectores/SideBar';
 import firebase from '../../firebase';
 import {message} from 'antd';
+//redux
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as searchActions from '../../actions/searchActions';
 
 const container = "https://kontainers.io/assets/images/container-04f1fc2e68c6c0f906a05b282a408809.png";
 const less = "https://kontainers.io/assets/images/pallet-0c751549b36bb2909aada2c8108f5558.png"
@@ -23,17 +27,14 @@ const Containers = props => (
             >
             ¿Qué necesitas?
         </h1>
-        <br/>
-        <br/>
-        <br/>
         <ImgButton 
         click={()=>{props.SetConsulta("container", "full"); props.click();}}
         img={container} 
-        text="Full Container" />
+        text="Un contendor completo" />
         <ImgButton
             click={()=>{props.SetConsulta("container", "less"); props.click();}}
         img={less} 
-        text="Less than a  Container" />
+        text="Menos de un contenedor" />
     </div>
 );
 
@@ -59,7 +60,7 @@ class Selector extends Component{
     
     state = {
         consulta:{},
-        display:1,
+        display:7,
         current:1,
         loading:true
     };
@@ -84,13 +85,18 @@ class Selector extends Component{
 
     //Por ahora doSearch guarda en firebase solamente.
     doSearch = (data) => {
-        firebase.database().ref('busquedas')
-            .push(data)
-                .then(r=>{
-                    this.setState({searchId:r.key});
-                    message.success("Tu busqueda se guardó")
-                })
-                .catch(e=>message.error("Algo muy malo pasó"));
+        this.props.searchActions.saveSearch(data)
+            .then(r=>{
+                console.log("thunk answer: ",r);
+                message.success("Tu busqueda se ha guardado =D");
+            });
+        // firebase.database().ref('busquedas')
+        //     .push(data)
+        //         .then(r=>{
+        //             this.setState({searchId:r.key});
+        //             message.success("Tu busqueda se guardó")
+        //         })
+        //         .catch(e=>message.error("Algo muy malo pasó"));
     };
     
     click = () => {
@@ -138,21 +144,22 @@ class Selector extends Component{
         <section
             style={styles.container}       
         >
-            <Cargando loading={loading} />
+
         
            <SideBar
                changeCurrent={this.changeCurrent}
                display={display}/>
             
            <article
+               className="contenedor-form"
                 style={styles.middle}  
             >
               
                {display === 1 && 
                    <Containers
                        SetConsulta={this.SetConsulta}
-              class={clase} 
-              click={this.click}/>}
+                       class={clase}
+                       click={this.click}/>}
                {display === 2 && 
                    <Type
                        SetConsulta={this.SetConsulta}
@@ -202,7 +209,7 @@ class Selector extends Component{
 
 const styles = {
     container:{
-        overflow:'hidden',
+        //overflow:'hidden',
         minWidth:'100%',
         minHeight:'70vh',
         width:'auto',
@@ -216,6 +223,22 @@ const styles = {
         display:'table-cell',
         verticalAlign: 'middle'
     },
+};
+
+function mapStateToProps(state, ownProps){
+    return {
+        search: state.search
+    }
+}
+function mapDispatchToProps(dispatch){
+    return {
+        searchActions:bindActionCreators(searchActions, dispatch)
+    }
 }
 
-export default Selector;
+export default connect(mapStateToProps, mapDispatchToProps)(Selector);
+
+
+
+//quite el cargando:
+//<Cargando loading={loading} />

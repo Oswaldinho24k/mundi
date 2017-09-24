@@ -104,7 +104,6 @@ class NavBar extends Component{
          </div>
          <div style={!ancho ? styles.noShow:{display:'inline-block'}}>
               <div style={styles.icon}>
-            {" | "}
             </div>
               <FontAwesome
                 style={styles.icon}
@@ -114,7 +113,11 @@ class NavBar extends Component{
             <span style={{
                      color:'grey',
                     fontSize:'1rem'
-                 }}>(33)771-34-56</span>
+                 }}>
+                <a href="callto:337713456">
+                    (33)771-34-56
+                </a>
+            </span>
 
          </div>
          <div>
@@ -148,8 +151,8 @@ const styles = {
     icon:{
         color:'white',
         display:'inline-block',
-        marginRight:'30px',
-        fontSize:'1.3rem',
+        marginRight:'5px',
+        fontSize:'1rem',
         cursor:'pointer'
     },
     icons:{

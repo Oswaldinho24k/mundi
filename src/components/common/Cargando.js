@@ -68,11 +68,11 @@ const styles = {
     },
      noVisible:{
         top:-800,
-        // opacity:0
+        opacity:0
     },
     noVisible2:{
         bottom:-800,
-        // opacity:0
+        opacity:0
     },
     text:{
         color:'white'

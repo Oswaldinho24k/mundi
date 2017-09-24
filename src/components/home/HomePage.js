@@ -5,42 +5,63 @@ import firebase from '../../firebase';
 import Selector from './Selector';
 import Background from '../common/Background';
 import logo from '../../assets/mundi_blanco.png';
-import {Button} from 'antd';
+import {Button, Spin} from 'antd';
 import Land from './Land';
 
+//estilos
+import './styles.css';
 
 
 class HomePage extends Component{
 
+    state = {
+        loading:true
+    };
+
+    componentWillMount(){
+        setTimeout(()=>{
+            this.setState({loading:false});
+        }, 2000);
+    }
+
   
     render(){
-        const ancho = document.documentElement.clientWidth < 600
+        const ancho = document.documentElement.clientWidth < 600;
+        const {loading} = this.state;
         return(
-            <div>
-        <div style={styles.tabla}>
-          <Background/>
-          <div style={styles.portada}>
-            <img style={styles.logo} src={logo} alt="logo"/>  
-            <h1 className='tittle'>
-                  "La forma más fácil de exportar e importar tus productos"
-             </h1>
+            <div style={loading?styles.noScroll:null}>
 
-             <p className='slog'>
-             La plataforma gratuita más simple para exportar, importar y hacer tus envíos nacionales e internacionales al alcance de un clic.
-             </p>
-             <div className="divs">
-              <Link to="/reserva">
-                 <Button
-                   type="primary">
-             Reservar
-             </Button>
-             </Link>
-             </div>
 
-              
-          </div>
+                    <div>
+                        {loading && <div style={styles.loading}><Spin style={styles.spin}/></div>}
+                        <div className="" style={styles.tabla}>
+                            <Background/>
+                            <div style={styles.portada}>
+                                <img style={styles.logo} src={logo} alt="logo"/>
+                                <h1 className='tittle'>
+                                    "La forma más fácil de exportar e importar tus productos"
+                                </h1>
 
-        </div>  <Land />
+                                <p className='slog'>
+                                    La plataforma gratuita más simple para exportar, importar y hacer tus envíos nacionales e internacionales al alcance de un clic.
+                                </p>
+                                <div className="divs">
+                                    <Link to="/reserva">
+                                        <Button
+                                            type="primary">
+                                            Reservar
+                                        </Button>
+                                    </Link>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <Land />
+                    </div>
+
+
             </div>
         );
     }
@@ -97,7 +118,24 @@ const styles = {
     },
     noShow:{
         display:'none'
+    },
+    loading:{
+        backgroundColor:'black',
+        display:'table',
+        textAlign:'center',
+        margin:'0 auto',
+        width:'100%',
+        height:'93vh',
+        position:'fixed'
+    },
+    spin:{
+        display:'table-cell',
+        verticalAlign:'middle'
+    },
+    noScroll:{
+        overflow:'hidden',
+        position:'fixed'
     }
-}
+};
 
 export default HomePage;

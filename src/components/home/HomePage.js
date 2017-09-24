@@ -4,7 +4,7 @@ import Slider from '../common/Slider';
 import firebase from '../../firebase';
 import Selector from './Selector';
 import Background from '../common/Background';
-import logo from '../../assets/log_mundi.png';
+import logo from '../../assets/mundi_blanco.png';
 import {Button} from 'antd';
 import Land from './Land';
 
@@ -21,21 +21,21 @@ class HomePage extends Component{
           <Background/>
           <div style={styles.portada}>
             <img style={styles.logo} src={logo} alt="logo"/>  
-            <h1 className='title'>
+            <h1 className='tittle'>
                   "La forma más fácil de exportar e importar tus productos"
              </h1>
 
-             <p className='slogan'>
-             La plataforma gratuita más simple para exportar, importar y hacer tus envíos nacionales e internacionales al alcance de un clic
+             <p className='slog'>
+             La plataforma gratuita más simple para exportar, importar y hacer tus envíos nacionales e internacionales al alcance de un clic.
              </p>
-             <Link to="/reserva">
+             <div className="divs">
+              <Link to="/reserva">
                  <Button
-                 ghost
-                 style={styles.action}
-             >
-             Comenzar
+                   type="primary">
+             Reservar
              </Button>
              </Link>
+             </div>
 
               
           </div>

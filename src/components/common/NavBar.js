@@ -51,19 +51,7 @@ class NavBar extends Component{
          <div
            style={ancho ? styles.noShow:styles.icons}>
          
-            <div style={styles.icon}>
-                {" | "}
-                <Link to="/landing">
-                <span
-                    style={{
-                        color:'grey',
-                        fontSize:'1rem'
-                    }}>Sobre Mundi</span>
 
-                </Link>
-        
-            {" | "}
-            </div>
             <FontAwesome
                 style={styles.icon}
                 name="phone"

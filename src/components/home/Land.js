@@ -6,7 +6,7 @@ import './Land.css';
 import FontAwesome from 'react-fontawesome';
 import { Button } from 'antd';
 import OwlCarousel from 'react-owl-carousel2';
-
+import Footer from '../footer/Footer';
 
 
 class Land extends Component{
@@ -233,13 +233,36 @@ class Land extends Component{
                     <div className="partners">
                         <h2>Partners</h2>
                         <p >Perfecto para principiantes y expertos por igual</p>
-                        <div className="flex">
+                        <div className="flex box_coment">
                             <div className="partner_box">
-                                
+                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
                             </div>
+                            <div className="partner_box">
+                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                            </div>
+                            <div className="partner_box">
+                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                            </div>
+                            <div className="partner_box">
+                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                            </div>
+                            <div className="partner_box">
+                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                            </div>
+                            <div className="partner_box">
+                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                            </div>
+                            <div className="partner_box">
+                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                            </div>
+                            <div className="partner_box">
+                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         );
     }

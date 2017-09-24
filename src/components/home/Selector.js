@@ -60,7 +60,7 @@ class Selector extends Component{
     
     state = {
         consulta:{},
-        display:7,
+        display:1,
         current:1,
         loading:true
     };

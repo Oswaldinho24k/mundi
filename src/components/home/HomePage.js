@@ -20,15 +20,15 @@ class HomePage extends Component{
         <div style={styles.tabla}>
           <Background/>
           <div style={styles.portada}>
-            <img style={styles.logo} src={logo} alt="logo"/>  
-            <h1 className='tittle'>
+            <img className="bot" style={styles.logo} src={logo} alt="logo"/>
+            <h1 className='tittle bot'>
                   "La forma más fácil de exportar e importar tus productos"
              </h1>
 
-             <p className='slog'>
+             <p className='slog bot'>
              La plataforma gratuita más simple para exportar, importar y hacer tus envíos nacionales e internacionales al alcance de un clic.
              </p>
-             <div className="divs">
+             <div className="divs bot">
               <Link to="/reserva">
                  <Button
                    type="primary">

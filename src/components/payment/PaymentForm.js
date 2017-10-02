@@ -32,7 +32,14 @@ class PaymentForm extends React.Component{
             })
         }
         });
-        console.log(this.state.user)
+
+        firebase.database().ref('busquedas/' + this.props.order)
+            .once('value', r=>{
+
+                this.setState({busqueda:r.val(), loading:false});
+                console.log(this.state.busqueda);
+            });
+        
     }
 
 
@@ -60,7 +67,11 @@ class PaymentForm extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.history.push("/userprofile");
+        console.log(this.state.user.uid);
+        let orden = this.state.busqueda;
+        orden["pagado"] = true;
+        let ordenes = firebase.database().ref("users/"+this.state.user.uid+"/orders")
+        ordenes.push(orden);
         message.success("Yo've successfully paid")
 
     }
@@ -91,37 +102,37 @@ class PaymentForm extends React.Component{
                     <FormItem
                     className="form-item half"
                     label="Name on Card">
-                        <Input name="client" onChange={this.handleChange}/>
+                        <Input name="client" onChange={this.handleChange} placeholder="John Wick"/>
                     </FormItem>
 
                     <FormItem
                     className="form-item half"
                     label="Card number">
-                        <Input name="card" onChange={this.handleChange}/>
+                        <Input name="card" onChange={this.handleChange} placeholder="4242 4242 4242 4242"/>
                     </FormItem>
 
                     <FormItem
                     className="form-item quarter"
                     label="Exp. Month">
-                        <Input name="month" onChange={this.handleChange}/>
+                        <Input name="month" onChange={this.handleChange} placeholder="02" maxLength="2"/>
                     </FormItem>
 
                     <FormItem
                     className="form-item quarter"
                     label="Exp. Year">
-                        <Input name="year" onChange={this.handleChange}/>
+                        <Input name="year" onChange={this.handleChange} placeholder="17" maxLength="2"/>
                     </FormItem>
 
                     <FormItem
                     className="form-item quarter"
                     label="Security Number">
-                        <Input addonAfter={<Tooltip placement="top" title={<Info/>}><Icon type="question-circle" /></Tooltip>} name="security" onChange={this.handleChange}/>
+                        <Input addonAfter={<Tooltip placement="top" title={<Info/>}><Icon type="question-circle" /></Tooltip>} name="security" onChange={this.handleChange} placeholder="982" maxLength="4" minLength="3"/>
                     </FormItem>
 
                     <FormItem
                     className="form-item quarter"
                     label="Zip">
-                        <Input name="zip" onChange={this.handleChange}/>
+                        <Input name="zip" onChange={this.handleChange} placeholder="09100" maxLength="10"/>
                     </FormItem>
 
                     <Button type="primary" htmlType="submit" size="large" className="pay-btn" disabled={this.state.user !== undefined ? false:true}>

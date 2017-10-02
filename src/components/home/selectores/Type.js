@@ -88,6 +88,8 @@ class Type extends React.Component{
             name="detalles"
             pregunta="¿Quieres que revisemos los detalles por ti?"
         />
+
+        <div style={styles.spaceBottom}></div>
         
 
         
@@ -135,6 +137,9 @@ const styles = {
         borderRadius:'5px',
         cursor:'pointer'
     },
-}
+    spaceBottom:{
+        marginBottom:'100px'
+    }
+};
 
 export default Type;

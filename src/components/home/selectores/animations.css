@@ -17,3 +17,67 @@
 /*        opacity: 1;*/
     }
 }
+
+
+/*// sideBar transformacion cuando movil*/
+
+.side-bar{
+    background-color:#292e30;
+    width:250px;
+    height:100vh;
+    position:fixed;
+    left:0;
+    top:64px;
+    padding-right:20px;
+    padding-left:20px;
+    transition:all 488ms ease;
+    z-index:99;
+    display:table;
+}
+
+.item{
+    background-color:black;
+    color:white;
+    padding:15px;
+    /*//        height:'30px',*/
+    border-radius:10px;
+    /*// transition:'all 488ms ease',*/
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:all 488ms ease;
+},
+.text{
+    margin-right:50px;
+    transition:all 488ms ease;
+}
+
+
+
+@media(max-width: 600px){
+    .side-bar{
+        width:100%;
+        height: 100px;
+        bottom:0;
+        top:auto;
+
+    }
+    .item{
+        padding: 10px;
+        width:auto;
+        height: auto;
+        max-width: 50px;
+        font-size: .5rem;
+        display: inline-block;
+        margin-right: 5px;
+        text-align: center;
+    }
+    .hide-if-movil{
+        display: none;
+    }
+}
+
+.cell{
+    display:table-cell;
+    vertical-align:middle;
+    transition:all 488ms ease;
+}

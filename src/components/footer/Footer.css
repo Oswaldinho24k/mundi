@@ -1,0 +1,55 @@
+.footer{
+    width:100%;
+    height:auto;
+    background-color: #212b35;
+
+}
+.invit{
+    height:200px;
+}
+.span{
+    color:white;
+    font-size: 30px;
+  padding-top: 6%;
+    margin-left: 20px;
+    float: left;
+}
+.divsi{
+    float: right;
+    margin-right: 100px;
+    margin-top: 6%;
+}
+.divsi button{
+    width:200px;
+    height:40px;
+    font-size: 18px;
+}
+
+.footer hr{
+    background-color: white;
+    height:1px;
+    opacity: .5;
+    width:100%;
+    border:transparent;
+}
+.redes{
+
+    padding: 15px 15px;
+
+
+}
+.flexi{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.icon_redes{
+    margin: 0 10px;
+}
+.terminos{
+    font-size: 13px;
+    padding: 15px 15px;
+}
+.terminos span{
+    margin:0 10px;
+}

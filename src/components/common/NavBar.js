@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import FontAwesome from 'react-fontawesome';
 import {Link} from 'react-router-dom';
-
+import './NavBar.css';
 import {Popover, Button, message} from 'antd';
 import LogIn from '../users/LogIn';
 import firebase from '../../firebase';
+import logo from '../../assets/log_mundi.png';
 
 
 
@@ -43,44 +44,14 @@ class NavBar extends Component{
     <div>
      <nav style={styles.nav}>
          <Link to="/">
-
-           <h2
-               style={{
-                   color:'#66bb6a',
-                  display:'inline-block',
-                   padding:0,
-                   margin:0,
-                  fontSize:'1.3rem',
-                      marginRight:'10px'
-               }}
-           >Mundi</h2>
+          <img src={logo} className='log_box'/>
+          
          </Link>
+
          <div
            style={ancho ? styles.noShow:styles.icons}>
-            <FontAwesome
-                style={styles.icon}
-                name="facebook"
-                size='2x'
-            />
-             <FontAwesome
-                style={styles.icon}
-                name="twitter"
-                size='2x'
-            />
-             <FontAwesome
-                style={styles.icon}
-                name="google-plus"
-                size='2x'
-            />
+         
 
-            <FontAwesome
-                style={styles.icon}
-                name="instagram"
-                size='2x'
-            />
-            <div style={styles.icon}>
-            {" | "}
-            </div>
             <FontAwesome
                 style={styles.icon}
                 name="phone"
@@ -133,7 +104,6 @@ class NavBar extends Component{
          </div>
          <div style={!ancho ? styles.noShow:{display:'inline-block'}}>
               <div style={styles.icon}>
-            {" | "}
             </div>
               <FontAwesome
                 style={styles.icon}
@@ -143,7 +113,15 @@ class NavBar extends Component{
             <span style={{
                      color:'grey',
                     fontSize:'1rem'
-                 }}>(33)771-34-56</span>
+                 }}>
+                <a href="callto:337713456">
+                    (33)771-34-56
+                </a>
+            </span>
+
+         </div>
+         <div>
+
 
          </div>
      </nav>
@@ -173,8 +151,8 @@ const styles = {
     icon:{
         color:'white',
         display:'inline-block',
-        marginRight:'30px',
-        fontSize:'1.3rem',
+        marginRight:'5px',
+        fontSize:'1rem',
         cursor:'pointer'
     },
     icons:{

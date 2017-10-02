@@ -126,7 +126,7 @@ handleCancel = (e) => {
                             <Panel header={exp.id} key="1">
                               <Tabs>
                                 <TabPane tab="Detail" key="1">
-                                <OrderPage busqueda={exp}/>
+                                <OrderPage busqueda={exp} bordered={false}/>
                                 </TabPane>
                                 <TabPane tab="Docs" key="2">
                                 <Files user={this.state.user}/>

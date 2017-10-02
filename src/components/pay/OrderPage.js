@@ -3,6 +3,7 @@ import firebase from '../../firebase';
 import {Card} from 'antd';
 import 'moment/locale/es';
 import moment from 'moment';
+import FontAwesome from 'react-fontawesome';
 
 class OrderPage extends React.Component {
 
@@ -18,8 +19,8 @@ class OrderPage extends React.Component {
 
     return(
       <div>
-        <Card title="Resumen de la Orden"  style={{ width: '100%', textAlign:'left' }}>
-          <h3>Container: </h3>
+        <Card title="Resumen de la Orden"  style={{ width: '100%', textAlign:'left' }} bordered={this.props.bordered}>
+          <h3><FontAwesome name="home"/> Container: </h3>
             <p>{this.props.busqueda.container}</p>
           <h3>Date: </h3>
             <p>{moment(this.props.busqueda.date).format('LL')}</p>

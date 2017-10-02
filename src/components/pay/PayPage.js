@@ -60,12 +60,13 @@ class PayPage extends Component{
 
                 <Row>
 
-                    <Col span={12}>
+                    <Col span={12} style={{padding:'0 8%'}}>
                       <OrderPage
+                        bordered={true}
                         busqueda={this.state.busqueda}/>
 
                       </Col>
-                  
+
                     <Col span={12}><PaymentForm order={this.state.searchId} history={this.props.history}/></Col>
 
                 </Row>

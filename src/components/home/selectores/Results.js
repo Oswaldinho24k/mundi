@@ -3,8 +3,34 @@ import {Button, Icon} from 'antd';
 import moment from 'moment';
 import 'moment/locale/es';
 
+import { Table } from 'antd';
 
 
+
+const columns = [{
+    title: 'Id',
+    dataIndex: 'id',
+    render: text => <a href="#">{text}</a>,
+}, {
+    title: 'Carrier',
+    dataIndex: 'carrier',
+}, {
+    title: 'Fecha de envío',
+    dataIndex: 'sendDate',
+},
+    //{
+      //  title: 'Duración',
+        //dataIndex: 'duration',
+    //},
+    {
+        title: 'Fecha de llegada',
+        dataIndex: 'arriveDate',
+    },
+    {
+        title: 'Precio',
+        dataIndex: 'price',
+    }
+];
 
 
 class Results extends Component{
@@ -74,47 +100,17 @@ class Results extends Component{
     }
 
     render(){
+        const {results} = this.state;
         return(
             <div>
-                <table className="tabla-results">
-                    <tr>
-                        <th>Carrier</th>
-                        <th>Fecha de embarque</th>
-                        <th>Duración</th>
-                        <th>Fecha de llegada</th>
-                        <th>USD</th>
-                        <th>...</th>
-                    </tr>
-                    
-                        {this.state.results.map(r=>{
-                            return(   
-                    <tr key={r.id}>                        
-                        <td>{r.carrier}</td>
-                        <td
-                            style={styles.fecha}
-                        >{moment(r.sendDate).format("D")}
-                            <span style={styles.mes}>
-                                {moment(r.sendDate).format("MMM")}
-                            </span> </td>
-                        <td>{r.duration} Dias</td>
-                        <td
-                            style={styles.fecha}
-                        >{moment(r.arriveDate).format("D")}
-                            <span style={styles.mes2}>
-                                {moment(r.arriveDate).format("MMM")}
-                            </span> </td>
-                        <td>$ {r.price}.00</td>
-                        <td><Button
-                                type="primary"
-                                onClick={this.props.click}
-                            >Comprar
-                            <Icon type="right"/>
-                            </Button></td>
-                    </tr>
-                            );
-                        })}
-                    
-                </table>
+                <br/>
+                <h2>Hemos encontrado esto para ti:</h2>
+                <br/>
+                <Table
+                    onRowClick={this.props.click}
+                    columns={columns}
+                    dataSource={results} />
+                <div style={styles.spaceBottom} />
             </div>
         );
     }
@@ -137,7 +133,53 @@ const styles = {
             color:"blue",
             paddingLeft:'5px',
             fontSize:'1rem'
-        }
+        },
+    spaceBottom:{
+        marginBottom:'100px'
+    }
 };
 
 export default Results;
+
+
+// quite la anterior:
+//
+//     <table className="tabla-results">
+//         <tr>
+//             <th>Carrier</th>
+//             <th>Fecha de embarque</th>
+//             <th>Duración</th>
+//             <th>Fecha de llegada</th>
+//             <th>USD</th>
+//             <th>...</th>
+//         </tr>
+//
+//         {this.state.results.map(r=>{
+//             return(
+//                 <tr key={r.id}>
+//                     <td>{r.carrier}</td>
+//                     <td
+//                         style={styles.fecha}
+//                     >{moment(r.sendDate).format("D")}
+//                         <span style={styles.mes}>
+//                                 {moment(r.sendDate).format("MMM")}
+//                             </span> </td>
+//                     <td>{r.duration} Dias</td>
+//                     <td
+//                         style={styles.fecha}
+//                     >{moment(r.arriveDate).format("D")}
+//                         <span style={styles.mes2}>
+//                                 {moment(r.arriveDate).format("MMM")}
+//                             </span> </td>
+//                     <td>$ {r.price}.00</td>
+//                     <td><Button
+//                         type="primary"
+//                         onClick={this.props.click}
+//                     >Comprar
+//                         <Icon type="right"/>
+//                     </Button></td>
+//                 </tr>
+//             );
+//         })}
+//
+//     </table>

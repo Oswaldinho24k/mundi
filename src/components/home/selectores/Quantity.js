@@ -143,6 +143,8 @@ class Quantity extends Component{
                     Borrar
                 </Button>
                     </div>}
+
+                    <div style={styles.spaceBottom}></div>
                 
             </div>
         );  
@@ -153,7 +155,10 @@ const styles = {
     img: {
         width:'200px',
 
+    },
+    spaceBottom:{
+        marginBottom:'100px'
     }
-}
+};
 
 export default Quantity;

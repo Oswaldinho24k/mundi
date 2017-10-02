@@ -28,22 +28,22 @@ class SideBar extends Component{
 
         return(
             <div 
-              style={styles.bar}>
+              className="side-bar">
 
             <div
-             style={styles.cell}>
+             className="cell">
              <QueueAnim 
              type={['left', 'left']}>
                      
                  {display > 0 && <div
                     key="1"
                     onClick={()=>this.change(1)}
-                    style={styles.item}
+                    className="item"
                     >
                     <span style={styles.text}>
                         Booking
                     </span>
-                    <span style={{color:'grey'}}>
+                    <span className="hide-if-movil" style={{color:'grey'}}>
                         EXPORT
                     </span>
                 </div>}
@@ -51,12 +51,12 @@ class SideBar extends Component{
                {display > 1 && <div
                     key="2"
                     onClick={()=>this.change(2)}
-                    style={styles.item}
+                    className="item"
                     >
                     <span style={styles.text}>
                         Details
                     </span>
-                    <span style={{color:'grey'}}>
+                   <span className="hide-if-movil" style={{color:'grey'}}>
                         CONTENT
                     </span>
                 </div>}
@@ -64,12 +64,12 @@ class SideBar extends Component{
                  {display > 2 && <div
                      key="3"
                      onClick={()=>this.change(3)}
-                     style={styles.item}
+                     className="item"
                  >
                     <span style={styles.text}>
                         From
                     </span>
-                     <span style={{color:'grey'}}>
+                     <span className="hide-if-movil" style={{color:'grey'}}>
                         PORT
                     </span>
                  </div>}
@@ -77,12 +77,12 @@ class SideBar extends Component{
                  {display > 3 && <div
                      key="4"
                      onClick={()=>this.change(4)}
-                     style={styles.item}
+                     className="item"
                  >
                     <span style={styles.text}>
                         Date
                     </span>
-                     <span style={{color:'grey'}}>
+                     <span className="hide-if-movil" style={{color:'grey'}}>
                         CARGO
                     </span>
                  </div>}
@@ -90,12 +90,12 @@ class SideBar extends Component{
                  {display > 4 && <div
                      key="5"
                      onClick={()=>this.change(5)}
-                     style={styles.item}
+                     className="item"
                  >
                     <span style={styles.text}>
                         To
                     </span>
-                     <span style={{color:'grey'}}>
+                     <span className="hide-if-movil" style={{color:'grey'}}>
                         PORT
                     </span>
                  </div>}
@@ -103,12 +103,12 @@ class SideBar extends Component{
                  {display > 5 && <div
                      key="6"
                      onClick={()=>this.change(6)}
-                     style={styles.item}
+                     className="item"
                  >
                     <span style={styles.text}>
                         Quantity
                     </span>
-                     <span style={{color:'grey'}}>
+                     <span className="hide-if-movil" style={{color:'grey'}}>
                         CONTAINERS
                     </span>
                  </div>}
@@ -116,12 +116,12 @@ class SideBar extends Component{
                  {display > 6 && <div
                      key="7"
                      onClick={()=>this.change(7)}
-                     style={styles.item}
+                     className="item"
                  >
                     <span style={styles.text}>
                         Options
                     </span>
-                     <span style={{color:'grey'}}>
+                     <span className="hide-if-movil" style={{color:'grey'}}>
                         SELECT
                     </span>
                  </div>}
@@ -148,7 +148,7 @@ const styles = {
         paddingRight:'20px',
         paddingLeft:'20px',
         transition:'all 488ms ease',
-        zIndex:1,
+        zIndex:99,
         display:"table",
     },
     cell:{
@@ -169,9 +169,10 @@ const styles = {
     text:{
         marginRight:'50px',
         transition:'all 488ms ease',
+        textAlign:'center'
 
     }
-}
+};
 
  
 

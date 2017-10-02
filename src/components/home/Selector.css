@@ -177,3 +177,14 @@
 }
 
 
+/*modificaciones para movil*/
+.contenedor-form{
+    padding-left: 250px;
+}
+
+@media(max-width: 600px){
+    .contenedor-form{
+        padding-left: 0;
+    }
+}
+

@@ -39,10 +39,26 @@ class Land extends Component{
 
     render(){
         const options = {
-            items: 3,
-            nav: false,
+
             loop:true,
-            autoplay: true
+            margin:0,
+            responsiveClass:true,
+            autoplay: true,
+            responsive:{
+                0:{
+                    items:1,
+
+                },
+                600:{
+                    items:2,
+
+                },
+                1000:{
+                    items:3,
+
+                    loop:false
+                }
+            }
 
         };
         return(
@@ -172,11 +188,11 @@ class Land extends Component{
                        <div className="flex_box">
                             <div className="flex">
                                 <div className="data bot">
-                                    <h3> Más de 200 </h3>
+                                    <h3> Más de 100 </h3>
                                     <p>países</p>
                                 </div>
                                 <div className="data bot">
-                                    <h3> Más de 1000 </h3>
+                                    <h3> Más de 100 </h3>
                                     <p>puertos alrededor del mundo</p>
                                 </div>
                                 <div className="data bot">
@@ -238,31 +254,31 @@ class Land extends Component{
                     </div>
                     <div className="partners">
                         <h2 className="bot">Partners</h2>
-                        <p className="bot">Perfecto para principiantes y expertos por igual</p>
+                        <p className="bot">Perfecto para grandes y pequeños exportadores o importadores</p>
                         <div className="flex box_coment">
                             <div className="partner_box bot">
                                 <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                                <img src="https://vectorise.net/logo/wp-content/uploads/2015/12/Logo-Cathay-Pacific-Cargo2.png" alt=""/>
+                            </div>
+                            <div className="partner_box bot top">
+                                <img src="https://www.afklcargo.com/DK/common/img/logo_Without_FMP.jpg" alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                                <img src="http://www.facturaticket.mx/wp-content/uploads/2015/09/AeroMexico-Cargo-Facturacion-Logo.png" alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                                <img src="http://www.ablefreight.com/wp-content/uploads/2013/11/Able-Freihgt-Logotype-Complete.png" alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                                <img src="https://15378-presscdn-0-14-pagely.netdna-ssl.com/wp-content/uploads/2015/05/msc.png" alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                                <img src="https://upload.wikimedia.org/wikipedia/en/c/c6/APL_logo.png" alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
-                            </div>
-                            <div className="partner_box bot">
-                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                                <img src="https://www.cma-cgm.com/static/Communication/ImgAboutUs/Logo_CMACGM_page-evenement-3.png" alt=""/>
                             </div>
 
                         </div>

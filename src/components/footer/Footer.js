@@ -11,7 +11,7 @@ class Footer extends Component{
         <div className="footer">
             <div className=" invit">
                 <div className="span">
-                    <span>¡Comienza tu período de prueba gratuito de 14 días!</span>
+                    <span>¡Comienza a exportar o importar ahora mismo!</span>
                 </div>
                 <div className="divsi">
                     <Button type="primary">Reservar</Button>

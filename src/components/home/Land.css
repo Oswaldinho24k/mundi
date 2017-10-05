@@ -9,7 +9,8 @@
     color: white;
     font-size: 15px;
     margin-bottom: 50px;
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Open Sans';
+
 
 }
 .divs button{
@@ -161,11 +162,11 @@
     padding-top: 50px;
 }
 .flex_box{
-    width:70%;
-    margin-left: 15%;
+    width:80%;
+    margin-left: 10%;
 }
 .data{
-    width:250px;
+    width:200px;
     flex-grow: 1;
     text-align: center;
     margin-top: 50px;
@@ -177,6 +178,7 @@
 .data p{
     font-size: 25px;
     color:#637381;
+
 }
 .box_coment{
     width:80%;
@@ -184,7 +186,6 @@
 }
 .card{
     width:200px;
-
     margin: 0 2%;
     background-color: white;
     flex-grow: 1;
@@ -202,7 +203,7 @@
     padding: 6% 10%;
 }
 .box_com{
-    background-color: #47c1bf;
+    background-color: #108ee9;
     width:100%;
     height:30%;
     position: relative;
@@ -243,4 +244,17 @@
 .partner_box img{
     width:60%;
     margin: 0 auto;
+    display: table;
+    vertical-align: middle;
+}
+.top{
+    margin-top: 10%;
+}
+@media(max-width: 770px){
+    .card{
+        margin-bottom: 50px;
+    }
+    .space{
+        margin-top: 0px;
+    }
 }

@@ -19,6 +19,10 @@ const Panel = Collapse.Panel;
 const TabPane = Tabs.TabPane;
 
 const columns = [ {
+    title:'ID',
+    dataIndex:'key',
+    key:'key'
+}, {
     title: 'Pagado',
     dataIndex: 'pagado',
     key: 'pagado',

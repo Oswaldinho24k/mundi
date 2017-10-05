@@ -36,7 +36,10 @@ export function getProfile(u){
                 let p = profile.val()
                 let lista = []
                 Object.keys(p.orders).forEach((order=>{
-                    lista.push(p.orders[order])
+                    let orden = p.orders[order];
+                    orden['key']=order;
+                    lista.push(orden);
+
                 }));
                 p['orders'] = lista;
             dispatch(getProfileSuccess(p));

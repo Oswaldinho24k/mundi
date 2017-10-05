@@ -8,8 +8,12 @@ import {BrowserRouter} from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import './default.less';
 //redux
-import store from './store/configureStore';
+import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
+import {checkIfUser} from "./actions/userActions";
+
+const store = configureStore();
+store.dispatch(checkIfUser());
 
 
 const WithRouter = () => (

@@ -8,7 +8,7 @@ import FontAwesome from 'react-fontawesome';
 class OrderPage extends React.Component {
 
   constructor(){
-    super()
+    super();
     this.props={
 
     }
@@ -18,8 +18,10 @@ class OrderPage extends React.Component {
   render () {
 
     return(
-      <div>
-        <Card title="Resumen de la Orden"  style={{ width: '100%', textAlign:'left' }} bordered={this.props.bordered}>
+
+        <Card title="Resumen de la Orden"
+              style={{ width: '100%', textAlign:'left' }}
+              bordered={this.props.bordered}>
           <h3><FontAwesome name="home"/> Container: </h3>
             <p>{this.props.busqueda.container}</p>
           <h3>Date: </h3>
@@ -38,7 +40,7 @@ class OrderPage extends React.Component {
           <p>Refri=>{this.props.busqueda.options.refri?'Yes':'No'}</p>
           <p>Detalles=>{this.props.busqueda.options.detalles?'Yes':'No'}</p>
         </Card>
-      </div>
+
     )
   }
 }

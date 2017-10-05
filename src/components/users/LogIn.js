@@ -3,16 +3,20 @@ import { Form, Icon, Input,Card,  Button, message, Popover } from 'antd';
 import {Link} from 'react-router-dom';
 import firebase from '../../firebase';
 import Background from '../common/Background';
+//redux
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as userActions from '../../actions/userActions';
 
 
 
 class PaswordRecover extends Component{
   state={
     email:''
-  }
+  };
   manageMail=(e)=>{
     this.setState({email:e.target.value})
-  }
+  };
   recover=()=>{
 
     let auth = firebase.auth();
@@ -23,7 +27,7 @@ class PaswordRecover extends Component{
     }).catch((error)=> {
       message.error(error)
     });
-  }
+  };
   render(){
     return(
       <div style={{textAlign:'center'}}>
@@ -59,7 +63,7 @@ class LogIn extends Component{
       pass:'',
       email:''
     }
-  }
+  };
 
 
 
@@ -73,28 +77,19 @@ class LogIn extends Component{
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let mail = this.state.user.email
-    let pass = this.state.user.pass
-    firebase.auth().signInWithEmailAndPassword(mail, pass).then(()=>{
-      message.success('Bienvenido '+ mail)
-      this.props.history.goBack()
+   let user = this.state.user;
+    this.props.userActions.getUser(user).then(r=>{
+      message.success('Bienvenido');
+      this.props.history.goBack();
 
-
-    }).catch((error)=> {
-      message.error('Algo está mal, intenta de nuevo')
-    });
-
-
-
-
-  }
+        this.props.userActions.getProfile(r);
+    })
+  };
   render(){
 
     return(
         <div>
             <Background/>
-
-       
       <div style={{padding:'10% 30%', textAlign:'center'}}>
         <Card title="Inicia Sesión">
           <Form onSubmit={this.handleSubmit} className="login-form">
@@ -141,5 +136,15 @@ class LogIn extends Component{
   }
 }
 
+function mapStateToProps(state, ownProps){
+    return {
+        user: state.user
+    }
+}
+function mapDispatchToProps(dispatch){
+    return {
+        userActions:bindActionCreators(userActions, dispatch)
+    }
+}
 
-export default LogIn;
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

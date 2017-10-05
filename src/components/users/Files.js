@@ -11,7 +11,7 @@ class Files extends React.Component {
   }
 
   constructor(){
-    super()
+    super();
     this.state={
         
         nombre:'',
@@ -31,7 +31,7 @@ class Files extends React.Component {
 
   nameUpload=(name)=>{
     this.setState({nombre:name})
-  }
+  };
 
   onUpload = (e) => {
   		 const status = e.file.status;

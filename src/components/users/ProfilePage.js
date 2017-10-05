@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
-import {message, Row, Col, Upload, Button, Icon, Modal, Avatar, Card, Tabs, Timeline, Collapse} from 'antd';
+import {message, Row, Col, Upload, Button, Icon, Modal, Avatar, Card, Tabs, Timeline, Collapse, Table, Tag} from 'antd';
 import firebase from '../../firebase';
 import './userprofile.css';
 import EditProfile from './EditProfileForm';
 import {Link} from 'react-router-dom';
 import Files from './Files';
 import OrderPage from '../pay/OrderPage';
+//redux
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as userActions from '../../actions/userActions';
+
 
 
 
@@ -13,49 +18,83 @@ import OrderPage from '../pay/OrderPage';
 const Panel = Collapse.Panel;
 const TabPane = Tabs.TabPane;
 
+const columns = [ {
+    title: 'Pagado',
+    dataIndex: 'pagado',
+    key: 'pagado',
+    render:(p)=>{
+        if(p==true){
+            return(
+                <div>Pagado</div>
+            )
+        }else{
+            return(
+                <div>No Pagado</div>
+            )
+        }
+
+    }
+}, {
+    title: 'Date',
+    dataIndex: 'date',
+    key: 'date',
+},{
+    title: 'Origen',
+    dataIndex: 'from.nombre',
+    key: 'from',
+},
+    {
+        title: 'Destino',
+        dataIndex: 'to.nombre',
+        key: 'to',
+    }];
+
 class UserProfile extends Component{
 
 constructor(){
-  super()
+  super();
   this.state={
+    profile:{
+      archivos:[],
+      orders:[]
+    },
       user:{},
       usuario:{
         img:''
       }
     }
+};
+
+componentWillReceiveProps(nextProps){
+    console.log(nextProps.profile);
+
+    this.setState({profile:nextProps.profile});
+
 }
+componentDidMount(){
+
+}
+
 
 showModal = () => {
   this.setState({
     visible: true,
   });
-}
+};
 handleOk = (e) => {
     console.log(e);
     this.setState({
       visible: false,
     });
-  }
+  };
 
 handleCancel = (e) => {
   console.log(e);
   this.setState({
     visible: false,
   });
-}
-  componentWillMount(){
-    firebase.auth().onAuthStateChanged((user)=> {
-      if (user) {
-        this.setState({user})
-        firebase.database().ref('users/'+user.uid).on('value', (snap)=>{
-          this.setState({usuario:snap.val()})
-        })
-      } else {
-        this.props.history.push('/logIn')
-        message.error('No puedes estar aqui ;)')
-      }
-    });
-  }
+};
+
   render(){
     const exportaciones = [
       {
@@ -77,29 +116,29 @@ handleCancel = (e) => {
           refri:true
         }
       }
-    ]
-    const imageUrl = this.state.imageUrl;
+    ];
+      const perfil = this.state.profile;
     return(
       <div style={{padding:'2%'}}>
         <Row>
-          <Col style={{padding:'1%'}} span="6">
-            <Card>
+          <Col span="6">
+            <Card style={{height:'75vh'}}>
               <div style={{width:'200px', height:'200px', margin:'0 auto'}}>
-                {this.state.usuario.img?
+                {perfil.img?
                   <Avatar
                     style={{width:'100%', height:'100%'}}
                     shape="square" size="large"
-                    src={this.state.usuario.img} />:
+                    src={perfil.img} />:
                     <Avatar
                       style={{width:'100%', height:'100%'}}
                       shape="square" size="large"
                       icon={<Icon type="question" style={{ fontSize: 16}}/>} />}
               </div>
               <Timeline style={{marginTop:'10%'}}>
-                <Timeline.Item dot={<Icon type="user" style={{ fontSize: '16px' }} />}>{this.state.usuario.rsocial}</Timeline.Item>
-                <Timeline.Item dot={<Icon type="mail" style={{ fontSize: '16px' }} />}>{this.state.usuario.email}</Timeline.Item>
-                <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>{this.state.usuario.rfc}</Timeline.Item>
-                <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>{this.state.usuario.telefono}</Timeline.Item>
+                <Timeline.Item dot={<Icon type="user" style={{ fontSize: '16px' }} />}>{perfil.rsocial}</Timeline.Item>
+                <Timeline.Item dot={<Icon type="mail" style={{ fontSize: '16px' }} />}>{perfil.email}</Timeline.Item>
+                <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>{perfil.rfc}</Timeline.Item>
+                <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>{perfil.telefono}</Timeline.Item>
               </Timeline>
 
               <Button type="primary" onClick={this.showModal}>Editar</Button>
@@ -110,37 +149,21 @@ handleCancel = (e) => {
                 onCancel={this.handleCancel}
                 footer={null}
               >
-                <EditProfile
-                  />
+                <EditProfile/>
               </Modal>
             </Card>
+              <div style={{display:'flex', justifyContent:'space-around', padding:'3%'}}>
+                  <Tag color="blue"><Icon type="up-square" />Exportaciones: 2</Tag>
+                  <Tag color="pink"><Icon type="down-square" />Importaciones: 2</Tag>
+
+              </div>
           </Col>
-          <Col style={{padding:'2%'}} span="18">
-            <Tabs defaultActiveKey="1">
-              <TabPane tab="Record" key="1">
+          <Col style={{paddingLeft:'2%'}} span="18">
+              <Card style={{height:'80vh'}}>
+                <Table dataSource={perfil.orders} columns={columns} />
 
-                  {exportaciones.map(exp=>{
-                    return(
+              </Card>
 
-                      <Collapse defaultActiveKey={['1']} >
-                            <Panel header={exp.id} key="1">
-                              <Tabs>
-                                <TabPane tab="Detail" key="1">
-                                <OrderPage busqueda={exp} bordered={false}/>
-                                </TabPane>
-                                <TabPane tab="Docs" key="2">
-                                <Files user={this.state.user}/>
-                                </TabPane>
-                            </Tabs>
-                          </Panel>
-                      </Collapse>
-                    );
-                  })}
-
-              </TabPane>
-              <TabPane tab="Other" key="2">Content of Tab Pane 2</TabPane>
-
-            </Tabs>
           </Col>
         </Row>
       </div>
@@ -149,4 +172,16 @@ handleCancel = (e) => {
 }
 
 
-export default UserProfile;
+
+function mapStateToProps(state, ownProps){
+    return {
+        profile: state.userMain.profile
+    }
+}
+function mapDispatchToProps(dispatch){
+    return {
+        userActions:bindActionCreators(userActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

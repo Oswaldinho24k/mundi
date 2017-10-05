@@ -17,14 +17,13 @@ import {bindActionCreators} from 'redux';
 import * as searchActions from '../../actions/searchActions';
 
 const container = "https://kontainers.io/assets/images/container-04f1fc2e68c6c0f906a05b282a408809.png";
-const less = "https://kontainers.io/assets/images/pallet-0c751549b36bb2909aada2c8108f5558.png"
+const less = "https://kontainers.io/assets/images/pallet-0c751549b36bb2909aada2c8108f5558.png";
 
 
 
 const Containers = props => (
     <div className={props.class}>
-         <h1
-            >
+         <h1>
             ¿Qué necesitas?
         </h1>
         <ImgButton 

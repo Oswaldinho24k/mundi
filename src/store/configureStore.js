@@ -3,13 +3,16 @@ import rootReducer from '../reducers';
 import thunk from 'redux-thunk';
 
 export const initialState = {
-    search:{}
+    search:{},
+    user:{},
+    profile:{}
 };
 
-const store = createStore(
+export function configureStore(){
+    return createStore(
     rootReducer,
     initialState,
     applyMiddleware(thunk)
-);
+);}
 
-export default store;
+export default configureStore;

@@ -10,6 +10,7 @@ import OrderPage from '../pay/OrderPage';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../../actions/userActions';
+import moment from 'moment';
 
 
 
@@ -21,9 +22,15 @@ const TabPane = Tabs.TabPane;
 const columns = [ {
     title:'ID',
     dataIndex:'key',
-    key:'key'
+    key:'key',
+    render:(key)=>(
+            <Link to={'/orders/'+key}>
+                {key}
+            </Link>
+        )
+
 }, {
-    title: 'Pagado',
+    title: 'Status',
     dataIndex: 'pagado',
     key: 'pagado',
     render:(p)=>{
@@ -42,6 +49,8 @@ const columns = [ {
     title: 'Date',
     dataIndex: 'date',
     key: 'date',
+    render:(d)=>(moment(d).format('LL'))
+
 },{
     title: 'Origen',
     dataIndex: 'from.nombre',

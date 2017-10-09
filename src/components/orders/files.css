@@ -1,0 +1,31 @@
+.upButton{
+    height: 100px;
+    width: 100px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    margin:0 auto;
+    padding:2%;
+    text-align: center;
+    border:1px solid #000000;
+}
+.upButton:hover{
+    cursor:pointer;
+}
+
+.file_extras{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.file_extras .archivo_icon{
+    margin-right: 2%;
+}
+.file_extras .archivo_icon:hover{
+    cursor: pointer;
+}

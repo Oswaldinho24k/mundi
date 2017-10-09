@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as userActions from '../../actions/userActions';
 import {Card, Col, Row} from 'antd';
 import OrderPage from '../pay/OrderPage';
+import FilesPage from './FilesPage';
 
 class DetailOrderPage extends Component {
     constructor(props, context) {
@@ -31,7 +32,7 @@ class DetailOrderPage extends Component {
                     </Col>
                     <Col style={{padding:'1%'}} span="18">
                         <Card>
-                            Export
+                            <FilesPage orderId={order.key}/>
                         </Card>
 
                     </Col>
@@ -46,11 +47,11 @@ class DetailOrderPage extends Component {
 function mapStateToProps(state, ownProps){
     if (ownProps.match){
 
-        const profile = state.userMain.profile;
+        const main = state.userMain;
+
         return {
-            orders: profile.orders,
-
-
+            user:main.user,
+            profile:main.profile
         }
     }
 

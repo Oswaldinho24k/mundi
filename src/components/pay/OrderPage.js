@@ -6,9 +6,8 @@ import moment from 'moment';
 import FontAwesome from 'react-fontawesome';
 
 const OrderPage=({order}) => {
-    console.log(order.options);
-    const options = order.options;
-    console.log(options)
+    console.log(order);
+
     return (
         <div>
             <Card style={{marginBottom:'1%'}}>

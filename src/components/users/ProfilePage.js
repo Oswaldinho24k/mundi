@@ -4,7 +4,7 @@ import firebase from '../../firebase';
 import './userprofile.css';
 import EditProfile from './EditProfileForm';
 import {Link} from 'react-router-dom';
-import Files from './Files';
+
 import OrderPage from '../pay/OrderPage';
 //redux
 import {connect} from 'react-redux';

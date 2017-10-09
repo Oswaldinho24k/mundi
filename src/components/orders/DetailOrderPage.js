@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../../actions/userActions';
+import {Card, Col, Row} from 'antd';
 import OrderPage from '../pay/OrderPage';
 
 class DetailOrderPage extends Component {
@@ -12,7 +13,7 @@ class DetailOrderPage extends Component {
         }
     }
     componentWillReceiveProps(nP){
-        console.log(nP)
+        console.log(nP);
        let id = nP.match.params.orderId;
         let order = nP.orders.filter(o=> o.key == id )[0];
         this.setState({order})
@@ -22,9 +23,20 @@ class DetailOrderPage extends Component {
     render() {
         const order = this.state.order;
         return (
-            <div>
-                detalle de la orden {order.key}
-                
+            <div style={{padding:'2%'}}>
+
+                <Row>
+                    <Col style={{padding:'1%'}} span="6">
+                       <OrderPage order={order}/>
+                    </Col>
+                    <Col style={{padding:'1%'}} span="18">
+                        <Card>
+                            Export
+                        </Card>
+
+                    </Col>
+                </Row>
+
             </div>
         );
     }

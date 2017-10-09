@@ -23,7 +23,7 @@ const firstChild = props => {
 const Routes = ({location}) => (
 
 
-       <Switch key={location.pathname} pathname={location.pathname}>  
+       <Switch key={location.pathname} pathname={location.pathname}>
        <Route
              exact
               path="/"

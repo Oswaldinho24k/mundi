@@ -9,7 +9,7 @@ import Selector from './components/home/Selector';
 import Fader from './components/Fader';
 import Landing from './components/landing/Landing';
 import PayPage from './components/pay/PayPage';
-import DetailOrderPage from './components/orders/DetailOrderPage';
+import {DetailOrderPage} from './components/orders/DetailOrderPage';
 
 import { RouteTransition } from 'react-router-transition';
 

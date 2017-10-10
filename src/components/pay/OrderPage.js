@@ -19,10 +19,10 @@ const OrderPage=({order}) => {
             <Card style={{marginBottom:'1%'}}>
                 Date: {moment(order.date).format('LL')}
             </Card>
-            {/*<Card style={{marginBottom:'1%'}}>
-                Peligros: {options.danger?'Yes':'No'}
-                Refrigeración: {options.refri?'Yes':'No'}
-                Detalles: {options.detalles?'Yes':'No'}
+            <Card style={{marginBottom:'1%'}}>
+                Peligros: {order.options.danger?'Yes':'No'}<br/>
+                Refrigeración: {order.options.refri?'Yes':'No'}<br/>
+                Detalles: {order.options.detalles?'Yes':'No'}
             </Card>
             <Card style={{marginBottom:'1%'}}>
                 From: {order.from.nombre}
@@ -32,9 +32,9 @@ const OrderPage=({order}) => {
             </Card>
 
             <Card style={{marginBottom:'1%'}}>
-                Big: {order.quantity.grande}
+                Big: {order.quantity.grande}<br/>
                 Little: {order.quantity.chico}
-            </Card>*/}
+            </Card>
 
 
 

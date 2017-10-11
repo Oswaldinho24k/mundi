@@ -59,7 +59,15 @@ class FilesPage extends React.Component {
                 archivos[name] = downloadURL;
                 this.setState({archivos});
                 console.log(this.state.archivos);
-                message.success(`${e.file.name} cargado con éxito, Guarda al Final`);
+                //message.success(`${e.file.name} cargado con éxito, Guarda al Final`);
+                this.props.guardarFiles(this.props.order, this.props.user, this.state.archivos)
+                    .then(r=>{
+                        message.success("se guardó")
+                    })
+                    .catch(e=>{
+                        message.error("No se guardó")
+                    })
+                ;
             })
         }
     };
@@ -179,7 +187,7 @@ class FilesPage extends React.Component {
                     </div>
                 </Col>
 
-                <Button onClick={this.saveDocs}>Guardar</Button>
+
             </Row>
         )
     }

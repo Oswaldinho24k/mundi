@@ -198,14 +198,14 @@
     margin-top: 50px;
 }
 .box_p{
-    height:70%;
+    height:75%;
     font-size: 17px;
     padding: 6% 10%;
 }
 .box_com{
     background-color: #108ee9;
     width:100%;
-    height:30%;
+    height:25%;
     position: relative;
 }
 .photo{
@@ -217,7 +217,7 @@
     border-radius: 40px;
     background-position: center;
     background-size: cover;
-    background-image: url('https://scontent.fmex5-1.fna.fbcdn.net/v/t1.0-9/19059459_1314745991954119_2064217828501685113_n.jpg?oh=6493b7cc5b0c45067612e597b4885e0c&oe=5A58D0ED');
+    background-image: url('https://cdn.shopify.com/assets2/testimonials/testimonials-tattly-large-060442c0be093d19f4e738dfce92e948511020f723483731508fd93f8e8b4639.jpg');
 }
 .partners{
     background-color: #f4f6f8;

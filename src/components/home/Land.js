@@ -56,7 +56,7 @@ class Land extends Component{
                 1000:{
                     items:3,
 
-                    loop:false
+
                 }
             }
 
@@ -70,6 +70,7 @@ class Land extends Component{
                         <p className="text bot">
                             Sea que envíes a nivel nacional o internacional
                             <br />Mundi puede ayudarte.
+                            <br />Desde unas cuantas cajas, hasta un contenedor.
                             <br />Por cielo, mar y tierra tenemos una solución para ti.
 
 
@@ -93,7 +94,10 @@ class Land extends Component{
                         <div className="flex">
                             <div className="ventaja bot">
                                 <h2>Transporte simple</h2>
-                                <p className="subtitulo">Terrestre, marítimo y aéreo con un par de clics.</p>
+                                <p className="texto">Contrata tu transporte terrestre, marítimo y aéreo desde la misma plataforma
+                                    y con sólo un par de clics. Tan fácil como oprimir un botón, selecciona origen, destino, fecha
+                                    y listo te presentamos todas las opciones disponibles con precios en tiempo real para que elijas
+                                    la que más se acomoda a tus necesidades. </p>
                             </div>
                             <div className="img_ventaja bot">
                                 <img src="https://cdn.shopify.com/assets2/homepage/themes-large-af3b8f6435367fb5ac9b2157b94a120c0ec64759ff690e2cef82016e8eb63d12.png" alt=""/>
@@ -105,10 +109,12 @@ class Land extends Component{
                         </div>
 
                             <div className="ventaja bot">
-                                <h2>Servicios simples</h2>
-                                <p className="subtitulo">Contrata tu seguro y agente aduanal con un par de clics.
+                                <h2>Despacho aduanal instantáneo
+                                </h2>
+                                <p className="subtitulo">Contrata tu agente aduanal con un par de clics.
                                 </p>
                                 <p className="texto">
+                                    Olvídate del despacho. En Mundi el despacho de mercancías es tan sencillo como presionar un botón, olvídate de estar mandando documentos por correo electrónico, con Mundi todo es más simple.
                                 </p>
 
                             </div>
@@ -116,11 +122,12 @@ class Land extends Component{
                         </div>
                         <div className="flex">
                             <div className="ventaja bot">
-                                <h2>Pagos simples
+                                <h2>Seguros simples
                                 </h2>
-                                <p className="subtitulo">En línea y sin salir de la plataforma.
-                                </p>
+
                                 <p className="texto">
+                                    Contratar el seguro de tu mercancía nunca fue tan sencillo. Ponemos a tu alcance todo el catálogo de aseguradoras y sus coberturas para que puedas comparar y contratar en tiempo real sin salir de la plataforma.
+
                                 </p>
 
                             </div>
@@ -134,13 +141,10 @@ class Land extends Component{
                             </div>
 
                             <div className="ventaja bot">
-                                <h2>Visualízalo todo
+                                <h2>Pagos simples
+
                                 </h2>
-                                <p className="texto">Toda la información de tus envíos
-                                    <br />
-                                    en una sola cadena de bloques
-                                    <br />
-                                    de fácil seguimiento.
+                                <p className="texto">Con Mundi puedes pagar en línea todo tipo de transporte y servicios, un solo portal, una sola factura y un solo pago. Y si quieres pagar todo por separado, no te preocupes, recuerda que en Mundi todo es posible. Transparencia total durante todo el trayecto.
                                 </p>
 
                             </div>
@@ -149,6 +153,12 @@ class Land extends Component{
                     </div>
                     <div className="both">
                         <div className="boxi">
+                            <h2  className="titulo bot">Visualízalo todo
+                            </h2>
+                            <br />
+                            <p className="subtitulo bot">
+                                Toda la información de tus envíos en una sola cadena de bloques de fácil seguimiento. Cuántos envíos has realizado, a qué destinos, qué productos, a qué clientes, qué tipo de transporte y cuánto has pagado por ello, consulta los documentos, pagos y todo lo necesario desde un solo lugar.
+                            </p>
                             <h2 className="titulo bot">Dedícate a hacer crecer tu negocio</h2>
                             <p className="text bot">Nosotros nos encargamos del resto</p>
 

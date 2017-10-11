@@ -3,12 +3,14 @@ import HomePage from './components/home/HomePage';
 import { Switch, Route } from 'react-router-dom';
 import LogIn from './components/users/LogIn';
 import Register from './components/users/Registry';
-import UserProfile from './components/users/ProfilePage';
+
+import {ProfileInfo} from "./components/users/ProfileInfo";
 import ExpoDetail from './components/exportaciones/ExpDetail';
 import Selector from './components/home/Selector';
 import Fader from './components/Fader';
 import Landing from './components/landing/Landing';
 import PayPage from './components/pay/PayPage';
+import {DetailOrderPage} from './components/orders/DetailOrderPage';
 
 import { RouteTransition } from 'react-router-transition';
 
@@ -22,7 +24,7 @@ const firstChild = props => {
 const Routes = ({location}) => (
 
 
-       <Switch key={location.pathname} pathname={location.pathname}>  
+       <Switch key={location.pathname} pathname={location.pathname}>
        <Route
              exact
               path="/"
@@ -43,7 +45,7 @@ const Routes = ({location}) => (
          
          <Route 
              path="/userprofile"
-             component={UserProfile}
+             component={ProfileInfo}
             />
             
         <Route 
@@ -58,6 +60,10 @@ const Routes = ({location}) => (
            <Route
                path="/pay/:searchId"
                component={PayPage}
+           />
+           <Route
+               path="/orders/:orderId"
+               component={DetailOrderPage}
            />
          
         </Switch>

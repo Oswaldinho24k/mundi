@@ -6,11 +6,6 @@ import './files.css';
 class FilesPage extends React.Component {
 
 
-    componentWillMount(){
-
-        console.log(this.props.user)
-    }
-
     constructor(){
         super();
         this.state={
@@ -18,15 +13,23 @@ class FilesPage extends React.Component {
             nombre:'',
             archivos:{
                 factura:'',
+                encargo:'',
+                lista:'',
+                carta:'',
+                documento:'',
+                certificado:''
             }
+        }
+    }
+    componentWillMount(){
+        if(this.props.order.archivos){
+            this.setState({archivos:this.props.order.archivos})
         }
     }
 
     saveDocs=()=>{
-        firebase.database().ref('users/'+this.props.user.uid+'/orders/'+this.props.orderId+'/archivos/').set(this.state.archivos).then(r=>{
-            message.success('Archivos Guardados')
-        }).catch(e=>{
-            message.error('Hubo un problema')
+        this.props.guardarFiles(this.props.order, this.props.user, this.state.archivos).then(()=>{
+            message.success('Tus archivos se agregaron a la orden!')
         })
     }
 
@@ -56,97 +59,123 @@ class FilesPage extends React.Component {
                 archivos[name] = downloadURL;
                 this.setState({archivos});
                 console.log(this.state.archivos);
-                message.success(`${e.file.name} cargado con éxito, ahora Guarda`);
+                message.success(`${e.file.name} cargado con éxito, Guarda al Final`);
             })
         }
     };
     render () {
+        const order = this.props.order;
+        let archivos;
+        if(order.archivos==undefined){
+            archivos = {}
+        }else{
+            archivos = this.state.archivos;
+        }
         return(
             <Row style={{textAlign:'center'}}>
-                <Col style={{padding:'2%'}} span={8} onClick={()=>this.nameUpload('factura')}>
+                <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('factura')}>
                     <Upload
 
                         onChange={this.onUpload}
                         showUploadList={false}>
                         <div className="upButton">
-                            <Icon type="user" style={{fontSize:'2rem'}}/>
+                            <Icon type="file-add" style={{fontSize:'2rem'}}/>
                             <p>Factura Comercial</p>
 
                         </div>
                     </Upload>
                     <div className="file_extras">
-                        <Icon type="file" className="archivo_icon"/>
-                        <Icon type="check-circle" />
+
+                        <a disabled={archivos.factura?false:true} href={archivos.factura} target="_blank">
+                            <Icon type="file" className="archivo_icon"/>
+                        </a>
+
+                        {archivos.factura?<Icon type="check-circle" style={{color:'green'}}/>:<Icon type="plus-circle"/>}
                     </div>
                 </Col>
-                <Col style={{padding:'2%'}} span={8} onClick={()=>this.nameUpload('encargo')}>
+                <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('encargo')}>
                     <Upload
                         onChange={this.onUpload}
                         showUploadList={false}>
                         <div className="upButton">
-                            <Icon type="user" style={{fontSize:'2rem'}}/>
+                            <Icon type="file-add" style={{fontSize:'2rem'}}/>
                             <p>Encargo Conferido</p>
                         </div>
                     </Upload>
                     <div className="file_extras">
-                        <Icon type="file" className="archivo_icon"/>
-                        <Icon type="check-circle" />
+
+                        <a disabled={archivos.encargo?false:true} href={archivos.encargo} target="_blank">
+                            <Icon type="file" className="archivo_icon"/>
+                        </a>
+                        {archivos.encargo?<Icon type="check-circle" style={{color:'green'}}/>:<Icon type="plus-circle"/>}
                     </div>
                 </Col>
-                <Col style={{padding:'2%'}} span={8} onClick={()=>this.nameUpload('carta')}>
+                <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('carta')}>
                     <Upload
                         onChange={this.onUpload}
                         showUploadList={false}>
                         <div className="upButton">
-                            <Icon type="user" style={{fontSize:'2rem'}}/>
+                            <Icon type="file-add" style={{fontSize:'2rem'}}/>
                             <p>Carta al Agente</p>
                         </div>
                     </Upload>
                     <div className="file_extras">
-                        <Icon type="file" className="archivo_icon"/>
-                        <Icon type="check-circle" />
+
+                        <a disabled={archivos.carta?false:true} href={archivos.carta} target="_blank">
+                            <Icon type="file" className="archivo_icon"/>
+                        </a>
+                        {archivos.carta?<Icon type="check-circle" style={{color:'green'}}/>:<Icon type="plus-circle"/>}
                     </div>
                 </Col>
-                <Col style={{padding:'2%'}} span={8} onClick={()=>this.nameUpload('lista')}>
+                <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('lista')}>
                     <Upload
                         onChange={this.onUpload}
                         showUploadList={false}>
                         <div className="upButton">
-                            <Icon type="user" style={{fontSize:'2rem'}}/>
+                            <Icon type="file-add" style={{fontSize:'2rem'}}/>
                             <p>Lista de Empaque</p>
                         </div>
                     </Upload>
                     <div className="file_extras">
-                        <Icon type="file" className="archivo_icon"/>
-                        <Icon type="check-circle" />
+
+                        <a disabled={archivos.lista?false:true} href={archivos.lista} target="_blank">
+                            <Icon type="file" className="archivo_icon"/>
+                        </a>
+                        {archivos.lista?<Icon type="check-circle" style={{color:'green'}}/>:<Icon type="plus-circle"/>}
                     </div>
                 </Col>
-                <Col style={{padding:'2%'}} span={8} onClick={()=>this.nameUpload('documento')}>
+                <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('documento')}>
                     <Upload
                         onChange={this.onUpload}
                         showUploadList={false}>
                         <div className="upButton">
-                            <Icon type="user" style={{fontSize:'2rem'}}/>
+                            <Icon type="file-add" style={{fontSize:'2rem'}}/>
                             <p>Documento de Transporte</p>
                         </div>
                     </Upload>
                     <div className="file_extras">
-                        <Icon type="file" className="archivo_icon"/>
-                        <Icon type="check-circle" />
+
+                        <a disabled={archivos.documento?false:true} href={archivos.documento} target="_blank">
+                            <Icon type="file" className="archivo_icon"/>
+                        </a>
+                        {archivos.documento?<Icon type="check-circle" style={{color:'green'}}/>:<Icon type="plus-circle"/>}
                     </div>
                 </Col>
-                <Col style={{padding:'2%'}} span={8} onClick={()=>this.nameUpload('certificado')}>
+                <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('certificado')}>
                     <Upload
                         onChange={this.onUpload}
                         showUploadList={false}>
                         <div className="upButton">
-                            <Icon type="user" style={{fontSize:'2rem'}}/>
+                            <Icon type="file-add" style={{fontSize:'2rem'}}/>
                             <p>Certificado de Origen</p>
                         </div>
                     </Upload>
                     <div className="file_extras">
-                        <Icon type="file" className="archivo_icon"/>
-                        <Icon type="check-circle" />
+
+                        <a disabled={archivos.certificado?false:true} href={archivos.certificado} target="_blank">
+                            <Icon type="file" className="archivo_icon"/>
+                        </a>
+                        {archivos.certificado?<Icon type="check-circle" style={{color:'green'}}/>:<Icon type="plus-circle"/>}
                     </div>
                 </Col>
 

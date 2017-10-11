@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import ProfilePage from './ProfilePage';
+import {bindActionCreators} from 'redux';
 
 function mapStateToProps(state, ownProps){
 

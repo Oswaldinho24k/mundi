@@ -90,6 +90,7 @@ const columns = [ {
     };
     render(){
         const perfil = this.props.profile;
+        console.log(this.props)
         return(    <div style={{padding: '2%'}}>
                 {!this.props.fetched?
                     <Spin/>:

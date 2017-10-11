@@ -1,5 +1,7 @@
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {DetailOrderDisplay} from "./DetailOrderDisplay";
+import * as orderActions from '../../actions/orderActions';
 
 function selectorOrder(id, lista){
          return lista.filter(o=> o.key == id )[0];
@@ -24,6 +26,9 @@ function mapStateToProps(state, ownProps){
 }
 
 function mapDispatchToProps(dispatch){
+    return {
+        orderActions:bindActionCreators(orderActions, dispatch)
+    }
 
 }
 

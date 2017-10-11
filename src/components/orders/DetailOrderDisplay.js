@@ -4,19 +4,20 @@ import {Spin, Col, Card, Row} from 'antd';
 import OrderPage from '../pay/OrderPage';
 import FilesPage from './FilesPage';
 
-export const DetailOrderDisplay = ({user, profile, fetched, order}) => {
+export const DetailOrderDisplay = ({user, profile, fetched, order,orderActions}) => {
+
     return (
         <div>
             {fetched ?
                 <div style={{padding:'2%'}}>
 
                      <Row>
-                         <Col style={{padding:'1%'}} span="6">
+                         <Col style={{padding:'1%'}} xs={{span:24}} sm={{span:24}} md={{span:6}}>
                             <OrderPage order={order}/>
                          </Col>
-                         <Col style={{padding:'1%'}} span="18">
+                         <Col style={{padding:'1%'}} xs={{span:24}} sm={{span:24}} md={{span:18}}>
                              <Card>
-                                 <FilesPage orderId={order.key}/>
+                                 <FilesPage order={order} user={user.uid} guardarFiles={orderActions.saveOrderFiles}/>
                              </Card>
 
                          </Col>

@@ -19,13 +19,14 @@ class Footer extends Component{
             </div>
             <hr />
             <div className="flexi">
-                <div className="redes">
+                <div className="redes centro">
                     <span><FontAwesome name='facebook-square' className='icon_redes' size="2x"/></span>
                     <span><FontAwesome name='twitter-square' className='icon_redes' size="2x"/></span>
                     <span><FontAwesome name='google-plus-square' className='icon_redes' size="2x"/></span>
                 </div>
                 <div className="terminos">
                     <span>Términos de servicio</span>
+
                     <span>Política de privacidad</span>
                 </div>
             </div>

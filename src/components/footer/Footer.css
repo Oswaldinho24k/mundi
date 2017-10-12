@@ -33,14 +33,13 @@
     border:transparent;
 }
 .redes{
-
+    display: inline-flex;
     padding: 15px 15px;
-
+    width:50%;
 
 }
 .flexi{
-    display: flex;
-    justify-content: space-between;
+
     color: white;
 }
 .icon_redes{
@@ -49,7 +48,18 @@
 .terminos{
     font-size: 13px;
     padding: 15px 15px;
+    width:50%;
 }
 .terminos span{
     margin:0 10px;
+}
+@media(max-width: 425px){
+    .terminos{
+        width:100%;
+
+    }
+    .centro{
+        width:50%;
+        margin-left: 25%;
+    }
 }

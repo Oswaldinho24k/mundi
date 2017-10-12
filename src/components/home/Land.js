@@ -122,8 +122,7 @@ class Land extends Component{
                             <div className="ventaja bot">
                                 <h2>Despacho aduanal instantáneo
                                 </h2>
-                                <p className="subtitulo">Contrata tu agente aduanal con un par de clics.
-                                </p>
+
                                 <p className="texto">
                                     Olvídate del despacho. En Mundi el despacho de mercancías es tan sencillo como presionar un botón, olvídate de estar mandando documentos por correo electrónico, con Mundi todo es más simple.
                                 </p>
@@ -203,7 +202,7 @@ class Land extends Component{
                         </div>
                     </div>
                     <div className="map">
-                        <h2 className="bot">Mundi es la plataforma preferida por exportadores
+                        <h2 className=" bot">Mundi es la plataforma preferida por exportadores
                             <br />
                             e importadores alrededor del mundo</h2>
                        <div className="flex_box">
@@ -273,8 +272,8 @@ class Land extends Component{
 
                     </div>
                     <div className="partners">
-                        <h2 className="bot">Partners</h2>
-                        <p className="bot">Perfecto para grandes y pequeños exportadores o importadores</p>
+                        <h2 className="bot ">Partners</h2>
+                        <p className="bot ">Perfecto para grandes y pequeños exportadores o importadores</p>
                         <div className="flex box_coment">
                             <div className="partner_box bot">
                                 <img src={maersk} alt=""/>

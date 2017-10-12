@@ -34,9 +34,10 @@
     text-align: center;
     padding: 50px 0px;
 }
-.titulo{
+.titulo, .mun{
     font-size: 32px;
     color:#212b35;
+
 }
 .text{
     font-size: 25px;
@@ -245,12 +246,11 @@
     height:auto;
     padding-bottom: 50px;
     text-align: center;
+    padding-top: 50px;
 }
 .partners h2{
     font-size: 40px;
 
-
-    padding-top: 50px;
 }
 .partners p{
     font-size: 25px;
@@ -276,5 +276,60 @@
     }
     .space{
         margin-top: 0px;
+    }
+}
+
+@media(max-width: 425px){
+    .tittle{
+    font-size: 25px;
+    }
+    .slog{
+
+        font-size: 12px;
+    }
+    .text{
+        font-size: 20px;
+    }
+    .text_section{
+        width:90%;
+
+    }
+    .map h2{
+         color:#212b35;
+         font-size: 20px;
+         text-align: center;
+         padding-top: 50px;
+     }
+    .data{
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .data h3{
+        font-size: 18px;
+    }
+    .data p{
+        font-size: 14px;
+    }
+    .map{
+        padding-bottom: 20px;
+    }
+    .box_p{
+        font-size: 15px;
+    }
+    .partner_box{
+        width:100px;
+        margin-top: 20px;
+    }
+    .top{
+        margin-top: 18%;
+    }
+    .partners{
+        padding-top: 20px;
+    }
+    .partners p{
+        font-size: 15px;
+    }
+    .partners h2{
+        font-size: 25px;
     }
 }

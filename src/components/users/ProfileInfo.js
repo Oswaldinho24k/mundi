@@ -4,10 +4,12 @@ import ProfilePage from './ProfilePage';
 import {bindActionCreators} from 'redux';
 
 function mapStateToProps(state, ownProps){
-
+    console.log(state, ownProps)
     return{
+        user:state.userMain.user,
         profile:state.userMain.profile,
-        fetched:state.userMain.profile !== null
+        fetched:state.userMain.profile !== null,
+
     }
 }
 

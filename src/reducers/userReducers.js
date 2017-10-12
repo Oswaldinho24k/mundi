@@ -10,6 +10,8 @@ export function userReducer(state = null, action){
         case "GET_USER_SUCCESS":
             return action.user;
 
+        case 'CHECK_IF_USER_ERROR':
+            return action.verified;
 
         default:
             return state;
@@ -19,6 +21,13 @@ export function profileReducer(state=null, action){
     switch(action.type){
         case "GET_PROFILE_SUCCESS":
             return action.profile;
+
+        case "SAVE_ORDER_FILES_SUCCESS":
+            let orders = [...state.orders.filter(o=>o.key!==action.payload.order.key), action.payload.order];
+            return {
+                ...state,
+                orders
+            };
 
         default:
             return state;

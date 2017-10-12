@@ -2,21 +2,17 @@
 .tittle{
     color:white;
     font-size: 35px;
-    font-family: 'Open Sans';
 
 }
 .slog{
     color: white;
     font-size: 15px;
     margin-bottom: 50px;
-    font-family: 'Open Sans';
 
 
-}
-p, span, h1, {
-    font-family: 'Open Sans';
 
 }
+
 .divs button{
     width:200px;
     height:40px;

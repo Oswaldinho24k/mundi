@@ -78,7 +78,7 @@ class Land extends Component{
                     <div className="text_section">
                         <h2 className="titulo bot">Una plataforma
                             <br /> hecha para ti</h2>
-                        <p className="text bot">
+                        <p className="texti bot">
                             Sea que envíes a nivel nacional o internacional
                             <br />Mundi puede ayudarte.
                             <br />Desde unas cuantas cajas, hasta un contenedor.
@@ -170,7 +170,7 @@ class Land extends Component{
                                 Toda la información de tus envíos en una sola cadena de bloques de fácil seguimiento. Cuántos envíos has realizado, a qué destinos, qué productos, a qué clientes, qué tipo de transporte y cuánto has pagado por ello, consulta los documentos, pagos y todo lo necesario desde un solo lugar.
                             </p>
                             <h2 className="titulo bot">Dedícate a hacer crecer tu negocio</h2>
-                            <p className="text bot">Nosotros nos encargamos del resto</p>
+                            <p className="texti bot">Nosotros nos encargamos del resto</p>
 
                                 <ul className="lista">
                                     <li className="bot">Envío Terrestre<FontAwesome name='check' className='icon bot' /></li>

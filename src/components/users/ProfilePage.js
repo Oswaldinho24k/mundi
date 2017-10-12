@@ -70,6 +70,15 @@ const columns = [ {
      state={
          visible:false
      }
+
+     componentWillMount(){
+         // if(this.props.user==null){
+         //     this.props.history.push('/login')
+         //     message.warning('Debes iniciar sesión para estar aquí')
+         // }
+     }
+
+
      showModal = () => {
         this.setState({
             visible: true,
@@ -95,7 +104,7 @@ const columns = [ {
                 {!this.props.fetched?
                     <Spin/>:
                     <Row>
-                        <Col span="6">
+                        <Col xs={{span:24}} sm={{span:6}} md={{span:6}}>
                             <Card style={{height: '75vh'}}>
                                 <div style={{width: '200px', height: '200px', margin: '0 auto'}}>
                                     {perfil.img ?
@@ -136,7 +145,7 @@ const columns = [ {
 
                             </div>
                         </Col>
-                        <Col style={{paddingLeft: '2%'}} span="18">
+                        <Col style={{paddingLeft: '2%'}} xs={{span:24}} sm={{span:18}} md={{span:18}}>
                             <Card style={{height: '80vh'}}>
                                 <Table dataSource={perfil.orders} columns={columns}/>
 

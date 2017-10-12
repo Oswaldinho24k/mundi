@@ -14,6 +14,8 @@ class PaswordRecover extends Component{
   state={
     email:''
   };
+
+
   manageMail=(e)=>{
     this.setState({email:e.target.value})
   };
@@ -31,8 +33,10 @@ class PaswordRecover extends Component{
   render(){
     return(
       <div style={{textAlign:'center'}}>
+
         <Form>
           <Form.Item>
+
               <Input
                 onChange={this.manageMail}
                 prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="email" />
@@ -75,6 +79,7 @@ class LogIn extends Component{
     console.log(this.state.user)
   };
 
+
   handleSubmit = (e) => {
     e.preventDefault();
    let user = this.state.user;
@@ -92,6 +97,7 @@ class LogIn extends Component{
             <Background/>
       <div style={{padding:'10% 30%', textAlign:'center'}}>
         <Card title="Inicia Sesión">
+
           <Form onSubmit={this.handleSubmit} className="login-form">
           <Form.Item>
 

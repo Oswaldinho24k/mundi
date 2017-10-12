@@ -1,7 +1,7 @@
 .upButton{
     height: 100px;
     width: 100px;
-    color: #009DE3;
+    color: #404040;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,29 +10,87 @@
     margin:0 auto;
     padding:2%;
     text-align: center;
-    border:1px solid #009DE3;
+
 }
 .upButton:hover{
     cursor:pointer;
+    color: #009DE3;
 }
 .upButton p{
     margin-top: 5%;
 }
 
 .file_extras{
-    margin-top: 2%;
+
     display: flex;
     justify-content: center;
+}
+.file_extras i{
+    margin: 0 2px;
+
+}
+.reupload{
+    display: flex;
+    justify-content: center;
+    margin-top: -8px;
+}
+.re-button{
+    width: 20px;
+    height:20px;
+    border: none;
+    color: black;
+}
+.file_uploaded p{
+    margin-top: 5%;
+}
+.re-button:hover{
+    border: none;
+    color: #009DE3;
+}
+
+.file_uploaded{
+    height: 100px;
+    width: 100px;
+    color: #404040;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    margin:0 auto;
+    padding:2%;
+    text-align: center;
+
+}
+.file_uploaded:hover{
+    color: #009DE3;
+}
+
+
+.archivo_icon2{
+    font-size: 2rem;
 
 }
 
-.file_extras .archivo_icon{
-    margin-right: 2%;
-}
-
-
-.file_extras a{
+.file_link:visited{
     text-decoration: none;
-    color: #000;
-    margin:-2px 5px;
 }
+.file_link:focus{
+    text-decoration: none;
+}
+
+.spinner_files{
+    position: absolute;
+    text-align: center;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 15% 45%;
+    z-index: 900;
+    top:6%;
+    right:3%;
+}
+.noSpin{
+    display: none;
+}
+

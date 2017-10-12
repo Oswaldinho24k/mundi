@@ -13,6 +13,7 @@ import PayPage from './components/pay/PayPage';
 import {DetailOrderPage} from './components/orders/DetailOrderPage';
 
 import { RouteTransition } from 'react-router-transition';
+import PrivateConnect from "./PrivateConnect";
 
 
 
@@ -43,7 +44,7 @@ const Routes = ({location}) => (
                 component={Register} 
             />
          
-         <Route 
+         <PrivateConnect
              path="/userprofile"
              component={ProfileInfo}
             />

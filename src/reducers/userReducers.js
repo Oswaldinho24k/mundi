@@ -10,6 +10,9 @@ export function userReducer(state = null, action){
         case "GET_USER_SUCCESS":
             return action.user;
 
+        case 'CHECK_IF_USER_ERROR':
+            return action.verified;
+
         default:
             return state;
     }

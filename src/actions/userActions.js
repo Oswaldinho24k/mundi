@@ -57,6 +57,10 @@ export function checkUserSuccess(user){
     return {type: 'CHECK_IF_USER_SUCCESS', user}
 }
 
+export function checkUserError(){
+    return {type: 'CHECK_IF_USER_ERROR', verified:false}
+}
+
 export function checkIfUser(){
     return function(dispatch, getState){
         return firebase.auth().onAuthStateChanged((u)=>{
@@ -66,6 +70,7 @@ export function checkIfUser(){
                 return u;
             }else{
                 console.log('no user')
+                dispatch(checkUserError())
             }
         })}
 }

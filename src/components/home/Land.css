@@ -67,9 +67,11 @@
     color: white;
     position: absolute;
     font-size: 20px;
-    top:90%;
-
+    top:87%;
+    left:20px;
+    opacity: .7;
 }
+
 .beneficios{
     width:70%;
     margin-left: 15%;
@@ -124,7 +126,7 @@
 .icon{
     margin: 0 9px;
     float: right;
-    color:#5c6ac4;
+    color:#58A8A6;
 }
 .carousel{
     width: 100%;
@@ -203,10 +205,19 @@
     padding: 6% 10%;
 }
 .box_com{
-    background-color: #108ee9;
+
     width:100%;
     height:25%;
     position: relative;
+}
+.azul{
+    background-color: #70B1B1;
+}
+.naranja{
+    background-color: #E6B55E;
+}
+.verde{
+    background-color: #A3B280;
 }
 .photo{
     position: absolute;
@@ -217,7 +228,16 @@
     border-radius: 40px;
     background-position: center;
     background-size: cover;
+}
+.com_uno{
     background-image: url('https://cdn.shopify.com/assets2/testimonials/testimonials-tattly-large-060442c0be093d19f4e738dfce92e948511020f723483731508fd93f8e8b4639.jpg');
+
+}
+.com_dos{
+    background-image: url('https://scontent.fmex5-1.fna.fbcdn.net/v/t1.0-9/12227223_877633965665326_4250458589751884486_n.jpg?oh=7fcb7fac010ede12bc5cbacd996f27d3&oe=5A77D8B1');
+}
+.com_tres{
+    background-image: url('https://scontent.fmex5-1.fna.fbcdn.net/v/t1.0-9/18622101_1882924718641974_9197820381214831012_n.jpg?oh=5216c30cfc3a119c0106c92eb7d2c30a&oe=5A3ED70E');
 }
 .partners{
     background-color: #f4f6f8;

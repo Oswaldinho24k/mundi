@@ -11,7 +11,7 @@ class Footer extends Component{
         <div className="footer">
             <div className=" invit">
                 <div className="span">
-                    <span>¡Comienza a exportar o importar ahora mismo!</span>
+                    <span>¡Comienza ahora mismo! ¡Es gratis!</span>
                 </div>
                 <div className="divsi">
                     <Button type="primary">Reservar</Button>
@@ -22,7 +22,6 @@ class Footer extends Component{
                 <div className="redes">
                     <span><FontAwesome name='facebook-square' className='icon_redes' size="2x"/></span>
                     <span><FontAwesome name='twitter-square' className='icon_redes' size="2x"/></span>
-                    <span><FontAwesome name='linkedin-square' className='icon_redes' size="2x"/></span>
                     <span><FontAwesome name='google-plus-square' className='icon_redes' size="2x"/></span>
                 </div>
                 <div className="terminos">

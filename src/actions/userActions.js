@@ -1,4 +1,6 @@
 import firebase from '../firebase';
+import {checkUserNotVerified, checkUserVerified} from "./validateActions";
+
 
 
 //get User
@@ -57,9 +59,7 @@ export function checkUserSuccess(user){
     return {type: 'CHECK_IF_USER_SUCCESS', user}
 }
 
-export function checkUserError(){
-    return {type: 'CHECK_IF_USER_ERROR', verified:false}
-}
+
 
 export function checkIfUser(){
     return function(dispatch, getState){
@@ -67,10 +67,12 @@ export function checkIfUser(){
             if(u){
                 dispatch(checkUserSuccess(u));
                 dispatch(getProfile(u));
+                dispatch(checkUserVerified());
                 return u;
             }else{
-                console.log('no user')
-                dispatch(checkUserError())
+                console.log('no user');
+                dispatch(checkUserVerified());
+
             }
         })}
 }

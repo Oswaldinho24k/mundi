@@ -4,7 +4,8 @@ import PrivateRoute from './PrivateRoute';
 function mapStateToProps(state) {
     return {
         usuario: state.userMain.user,
-        fetched: state.userMain.user!==null
+        fetched: state.userMain.user!==null,
+        verified: state.verified
     }
 }
 

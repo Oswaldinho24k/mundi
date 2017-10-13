@@ -90,7 +90,27 @@
     top:6%;
     right:3%;
 }
+.spinner_file_agent{
+    padding:8% 45%;
+}
 .noSpin{
     display: none;
+}
+
+.share_link_cont{
+    width:100%;
+    height: 150px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.no_agente{
+    cursor: default;
+    color: #999999;
+}
+.no_agente:hover{
+    cursor: default;
+    color: #999999;
 }
 

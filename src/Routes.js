@@ -14,6 +14,7 @@ import {DetailOrderPage} from './components/orders/DetailOrderPage';
 
 import { RouteTransition } from 'react-router-transition';
 import PrivateConnect from "./PrivateConnect";
+import {DetailOrderAgentPage} from "./components/orders/DetailOrderAgentPage";
 
 
 
@@ -63,8 +64,14 @@ const Routes = ({location}) => (
                component={PayPage}
            />
            <Route
+               exact
                path="/orders/:orderId"
                component={DetailOrderPage}
+           />
+           <Route
+               exact
+               path="/agente/:userId/:orderId"
+               component={DetailOrderAgentPage}
            />
          
         </Switch>

@@ -17,7 +17,8 @@ class FilesPage extends React.Component {
                 lista:'',
                 carta:'',
                 documento:'',
-                certificado:''
+                certificado:'',
+                aduanas:''
             },
             uploading:false
         }
@@ -28,11 +29,6 @@ class FilesPage extends React.Component {
         }
     }
 
-    saveDocs=()=>{
-        this.props.guardarFiles(this.props.order, this.props.user, this.state.archivos).then(()=>{
-            message.success('Tus archivos se agregaron a la orden!')
-        })
-    }
 
     nameUpload=(name)=>{
         this.setState({nombre:name})
@@ -61,7 +57,7 @@ class FilesPage extends React.Component {
                 this.setState({archivos});
                 console.log(this.state.archivos);
                 //message.success(`${e.file.name} cargado con éxito, Guarda al Final`);
-                this.props.guardarFiles(this.props.order, this.props.user, this.state.archivos)
+                this.props.guardarFiles(this.props.order, this.props.user.uid, this.state.archivos)
                     .then(r=>{
                         this.setState({uploading:false})
                         message.success("se guardó")
@@ -89,10 +85,11 @@ class FilesPage extends React.Component {
                 {!archivos.factura?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('factura')}>
                         <Upload
+                            disabled={this.props.user.isAnonymous?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className="upButton">
+                            <div className={this.props.user.isAnonymous?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Factura Comercial</p>
 
@@ -115,9 +112,10 @@ class FilesPage extends React.Component {
                     </a>
                         <div className="reupload">
                             <Upload
+                                disabled={this.props.user.isAnonymous?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className="upButton re-button">
+                                <div className={this.props.user.isAnonymous?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -129,10 +127,11 @@ class FilesPage extends React.Component {
                 {!archivos.carta?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('carta')}>
                         <Upload
+                            disabled={this.props.user.isAnonymous?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className="upButton">
+                            <div className={this.props.user.isAnonymous?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Certificado de Origen</p>
 
@@ -155,9 +154,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
+                                disabled={this.props.user.isAnonymous?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className="upButton re-button">
+                                <div className={this.props.user.isAnonymous?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -169,10 +169,11 @@ class FilesPage extends React.Component {
                 {!archivos.certificado?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('certificado')}>
                         <Upload
+                            disabled={this.props.user.isAnonymous?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className="upButton">
+                            <div className={this.props.user.isAnonymous?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Certificado Fitosanitario</p>
 
@@ -195,9 +196,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
+                                disabled={this.props.user.isAnonymous?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className="upButton re-button">
+                                <div className={this.props.user.isAnonymous?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -209,10 +211,11 @@ class FilesPage extends React.Component {
                 {!archivos.encargo?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('encargo')}>
                         <Upload
+                            disabled={this.props.user.isAnonymous?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className="upButton">
+                            <div className={this.props.user.isAnonymous?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Poliza de Seguro</p>
 
@@ -235,9 +238,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
+                                disabled={this.props.user.isAnonymous?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className="upButton re-button">
+                                <div className={this.props.user.isAnonymous?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -249,10 +253,11 @@ class FilesPage extends React.Component {
                 {!archivos.documento?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('documento')}>
                         <Upload
+                            disabled={this.props.user.isAnonymous?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className="upButton">
+                            <div className={this.props.user.isAnonymous?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Documento de Transporte</p>
 
@@ -275,9 +280,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
+                                disabled={this.props.user.isAnonymous?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className="upButton re-button">
+                                <div className={this.props.user.isAnonymous?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -289,10 +295,11 @@ class FilesPage extends React.Component {
                 {!archivos.lista?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('lista')}>
                         <Upload
+                            disabled={this.props.user.isAnonymous?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className="upButton">
+                            <div className={this.props.user.isAnonymous?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Lista de Empaque</p>
 
@@ -315,9 +322,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
+                                disabled={this.props.user.isAnonymous?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className="upButton re-button">
+                                <div className={this.props.user.isAnonymous?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>

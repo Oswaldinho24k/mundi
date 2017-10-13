@@ -11,9 +11,11 @@ import './default.less';
 import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import {checkIfUser} from "./actions/userActions";
+import {getSingleOrder} from "./actions/orderActions";
 
 const store = configureStore();
 store.dispatch(checkIfUser());
+
 
 
 const WithRouter = () => (

@@ -3,17 +3,21 @@ import {Redirect, Route} from "react-router-dom";
 import {Spin, message} from 'antd';
 
 
-const PrivateRoute = ({component: Component, user, fetched,  ...rest}) => {
-    if(fetched){
-        if (user === null ){
+const PrivateRoute = ({component: Component, usuario, fetched, verified , ...rest}) => {
+    if(verified){
+
+        if (usuario === null ){
+
             message.warning('Debes iniciar sesión');
         }
     }
+
     return (
         <div>
-            {fetched ?
+            {verified ?
                 <Route {...rest} render={props => (
-                    user !== null ?
+
+                    usuario !== null  ?
                         (
                             <Component {...props} />
                         ) : (

@@ -10,6 +10,7 @@ function selectorOrder(id, lista){
 }
 
 function mapStateToProps(state, ownProps){
+
     let order = {};
     if(state.userMain.profile){
         const orderId = ownProps.match.params.orderId;
@@ -23,6 +24,7 @@ function mapStateToProps(state, ownProps){
         fetched: state.userMain.profile !== null
 
     }
+
 }
 
 function mapDispatchToProps(dispatch){

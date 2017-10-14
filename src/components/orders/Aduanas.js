@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {Row, Col, Icon, Upload, Button, Input, Tooltip, message, Spin} from 'antd';
+import {Row, Col, Icon, Upload, Button, Input, Tooltip, message, Spin, Switch} from 'antd';
 import firebase from '../../firebase';
 import './files.css'
 
@@ -31,31 +31,31 @@ class Aduanas extends Component{
         }
     }
     componentDidMount(){
-        let url = 'localhost:3000/agente/'+this.props.user.uid+'/'+this.props.order.key;
-        this.setState({url})
+        if(this.props.user){
+            let url = 'localhost:3000/agente/'+this.props.user.uid+'/'+this.props.order.key;
+            this.setState({url})
+        }
     }
 
 
     nameUpload=(name)=>{
-        this.setState({nombre:name})
+        this.setState({nombre:name});
         console.log(this.state.nombre)
     };
+
+
     copyToClip=()=>{
-        var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
-
-        copyTextareaBtn.addEventListener('click', function(event) {
-            var copyTextarea = document.querySelector('.js-copytextarea');
-            copyTextarea.select();
-
-            try {
-                var successful = document.execCommand('copy');
-                var msg = successful ? 'successful' : 'unsuccessful';
-                console.log('Copying text command was ' + msg);
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        });
-    }
+        //this.textInput.select()
+        document.querySelector('#input').select();
+        document.execCommand("Copy");
+        message.success('Link Copiado')
+    };
+    onChange=()=>{
+        let order = this.props.order;
+        order.editable = !order.editable;
+        this.props.canEdit(order);
+        message.warning('Cambiaste el status de edición!')
+    };
 
     onUpload = (e) => {
         const status = e.file.status;
@@ -71,6 +71,7 @@ class Aduanas extends Component{
             uploadTask.on('state_changed', (snapshot)=>{
                 this.setState({uploading:true})
             }, (error) => {
+                console.log(error)
             }, () => {
 
                 let downloadURL = uploadTask.snapshot.downloadURL;
@@ -100,7 +101,7 @@ class Aduanas extends Component{
                 <div className={this.state.uploading?"spinner_files spinner_file_agent":"noSpin"}>
                     <Spin size={'large'} />
                 </div>
-                {user.isAnonymous?
+                {user === null || user.uid!==this.props.match.params.userId ?
                     <Row>
                         {!order.archivos.aduanas?
                             <Col
@@ -173,7 +174,7 @@ class Aduanas extends Component{
 
                                 </div>
                             </Col>:
-                            <Col style={{padding:'2%'}} md={{span:12}} sm={{span:12}} xs={{span:12}}>
+                            <Col style={{padding:'2%'}} md={{span:12}} sm={{span:24}} xs={{span:24}}>
                                 <a href={order.archivos.aduanas} target="_blank" className="file_link">
                                     <div className="file_uploaded">
 
@@ -197,12 +198,22 @@ class Aduanas extends Component{
                                 </div>
                             </Col>}
                         <Col
-                            md={{span:12}} sm={{span:12}} xs={{span:12}}>
+                            md={{span:12}} sm={{span:24}} xs={{span:24}}>
 
                             <div className="share_link_cont">
                                 <div style={{width:'100%'}}>
-                                    <span>Comparte este Link a tu Agente</span>
+                                    <span style={{display:'flex', justifyContent:'space-between', padding:'2%'}}>
+                                        <p>Comparte este Link a tu Agente </p>
+                                        <Switch
+                                            checkedChildren="Editable"
+                                            unCheckedChildren="No Editable"
+                                            defaultChecked={this.props.order.editable}
+                                            onChange={this.onChange}/>
+                                    </span>
+
+
                                     <Input
+                                        id={'input'}
                                         style={{width:'100%'}}
                                         size={'large'}
                                         addonBefore={
@@ -216,6 +227,8 @@ class Aduanas extends Component{
                                         }
                                         defaultValue={this.state.url}
                                         value={this.state.url}/>
+
+
                                 </div>
                             </div>
 

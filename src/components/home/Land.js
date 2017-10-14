@@ -8,7 +8,18 @@ import { Button } from 'antd';
 import OwlCarousel from 'react-owl-carousel2';
 import Footer from '../footer/Footer';
 import sr from './scrollReveal.js';
-
+import uno from '../../assets/uno2-01.png';
+import dos from '../../assets/dos-01.png';
+import tres from '../../assets/tres-01.png';
+import cuatro from '../../assets/cuatro-01.png';
+import maersk from '../../assets/maersk.gif';
+import cat from '../../assets/cat.png';
+import air from '../../assets/air.jpg';
+import aero from '../../assets/Aero.png';
+import able from '../../assets/able.png';
+import msc from '../../assets/msc.png';
+import apl from '../../assets/apl.png';
+import cma from '../../assets/cma.png';
 
 class Land extends Component{
     componentDidMount () {
@@ -67,7 +78,7 @@ class Land extends Component{
                     <div className="text_section">
                         <h2 className="titulo bot">Una plataforma
                             <br /> hecha para ti</h2>
-                        <p className="text bot">
+                        <p className="texti bot">
                             Sea que envíes a nivel nacional o internacional
                             <br />Mundi puede ayudarte.
                             <br />Desde unas cuantas cajas, hasta un contenedor.
@@ -100,19 +111,18 @@ class Land extends Component{
                                     la que más se acomoda a tus necesidades. </p>
                             </div>
                             <div className="img_ventaja bot">
-                                <img src="https://cdn.shopify.com/assets2/homepage/themes-large-af3b8f6435367fb5ac9b2157b94a120c0ec64759ff690e2cef82016e8eb63d12.png" alt=""/>
+                                <img src={uno} alt=""/>
                             </div>
                         </div>
                         <div className="flex">
                             <div className="img_ventaja bot">
-                            <img src="https://cdn.shopify.com/assets2/homepage/mission-control-large-f57da08db440a20282e2775e483e1973632cd12faed75823564745e821766d5d.png" alt=""/>
+                            <img src={dos} alt=""/>
                         </div>
 
                             <div className="ventaja bot">
                                 <h2>Despacho aduanal instantáneo
                                 </h2>
-                                <p className="subtitulo">Contrata tu agente aduanal con un par de clics.
-                                </p>
+
                                 <p className="texto">
                                     Olvídate del despacho. En Mundi el despacho de mercancías es tan sencillo como presionar un botón, olvídate de estar mandando documentos por correo electrónico, con Mundi todo es más simple.
                                 </p>
@@ -132,12 +142,12 @@ class Land extends Component{
 
                             </div>
                             <div className="img_ventaja bot">
-                                <img src="https://cdn.shopify.com/assets2/homepage/themes-large-af3b8f6435367fb5ac9b2157b94a120c0ec64759ff690e2cef82016e8eb63d12.png" alt=""/>
+                                <img src={tres} alt=""/>
                             </div>
                         </div>
                         <div className="flex">
                             <div className="img_ventaja bot">
-                                <img src="https://cdn.shopify.com/assets2/homepage/mission-control-large-f57da08db440a20282e2775e483e1973632cd12faed75823564745e821766d5d.png" alt=""/>
+                                <img src={cuatro} alt=""/>
                             </div>
 
                             <div className="ventaja bot">
@@ -160,7 +170,7 @@ class Land extends Component{
                                 Toda la información de tus envíos en una sola cadena de bloques de fácil seguimiento. Cuántos envíos has realizado, a qué destinos, qué productos, a qué clientes, qué tipo de transporte y cuánto has pagado por ello, consulta los documentos, pagos y todo lo necesario desde un solo lugar.
                             </p>
                             <h2 className="titulo bot">Dedícate a hacer crecer tu negocio</h2>
-                            <p className="text bot">Nosotros nos encargamos del resto</p>
+                            <p className="texti bot">Nosotros nos encargamos del resto</p>
 
                                 <ul className="lista">
                                     <li className="bot">Envío Terrestre<FontAwesome name='check' className='icon bot' /></li>
@@ -192,7 +202,7 @@ class Land extends Component{
                         </div>
                     </div>
                     <div className="map">
-                        <h2 className="bot">Mundi es la plataforma preferida por exportadores
+                        <h2 className=" bot">Mundi es la plataforma preferida por exportadores
                             <br />
                             e importadores alrededor del mundo</h2>
                        <div className="flex_box">
@@ -216,14 +226,14 @@ class Land extends Component{
                                 <div className="card bot">
                                     <div className="box_p">
                                         <p>
-                                            Estoy increíblemente feliz de gestionar nuestra tienda
-                                            en Shopify. Con sus poderosas herramientas y la facilidad
-                                            para configurarla, ¡no esperaba que fuera tan divertido
-                                            tener una tienda virtual!
+                                            Esta es una oportunidad para lograr que disfrutar esa experiencia,
+                                            a través de un amplio catálogo de servios,  buenos precios y facilidad en
+                                            el uso de las plataformas, así como las  diversas opciones de
+                                            pago principalmente.
                                         </p>
                                     </div>
-                                    <div className="box_com">
-                                        <div className="photo">
+                                    <div className="box_com azul">
+                                        <div className="photo com_uno">
 
                                         </div>
                                     </div>
@@ -231,14 +241,14 @@ class Land extends Component{
                                 <div className="card space bot">
                                     <div className="box_p">
                                         <p>
-                                            Estoy increíblemente feliz de gestionar nuestra tienda
-                                            en Shopify. Con sus poderosas herramientas y la facilidad
-                                            para configurarla, ¡no esperaba que fuera tan divertido
-                                            tener una tienda virtual!
+                                            Esta plataforma nos permite tener acceso desde cualquier lugar y a cualquier hora
+                                            los 365 días de año. Además de que como usuario tengo la seguridad de realizar compras
+                                            online con mi tarjeta de crédito.
+
                                         </p>
                                     </div>
-                                    <div className="box_com">
-                                        <div className="photo">
+                                    <div className="box_com naranja">
+                                        <div className="photo com_dos">
 
                                         </div>
                                     </div>
@@ -246,14 +256,13 @@ class Land extends Component{
                                 <div className="card bot">
                                     <div className="box_p">
                                         <p>
-                                            Estoy increíblemente feliz de gestionar nuestra tienda
-                                            en Shopify. Con sus poderosas herramientas y la facilidad
-                                            para configurarla, ¡no esperaba que fuera tan divertido
-                                            tener una tienda virtual!
+                                            Por medio de mi perfil puedo centralizar todo el proceso de exportación o importación
+                                            de mis productos, además de consultar el historial de los mismos de forma estadística
+                                            y gráfica.
                                         </p>
                                     </div>
-                                    <div className="box_com">
-                                        <div className="photo">
+                                    <div className="box_com verde">
+                                        <div className="photo com_tres">
 
                                         </div>
                                     </div>
@@ -263,32 +272,32 @@ class Land extends Component{
 
                     </div>
                     <div className="partners">
-                        <h2 className="bot">Partners</h2>
-                        <p className="bot">Perfecto para grandes y pequeños exportadores o importadores</p>
+                        <h2 className="bot ">Partners</h2>
+                        <p className="bot ">Perfecto para grandes y pequeños exportadores o importadores</p>
                         <div className="flex box_coment">
                             <div className="partner_box bot">
-                                <img src="http://www.dafont.com/forum/attach/orig/1/2/12616.gif" alt=""/>
+                                <img src={maersk} alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="https://vectorise.net/logo/wp-content/uploads/2015/12/Logo-Cathay-Pacific-Cargo2.png" alt=""/>
+                                <img src={cat} alt=""/>
                             </div>
                             <div className="partner_box bot top">
-                                <img src="https://www.afklcargo.com/DK/common/img/logo_Without_FMP.jpg" alt=""/>
+                                <img src={air} alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="http://www.facturaticket.mx/wp-content/uploads/2015/09/AeroMexico-Cargo-Facturacion-Logo.png" alt=""/>
+                                <img src={aero} alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="http://www.ablefreight.com/wp-content/uploads/2013/11/Able-Freihgt-Logotype-Complete.png" alt=""/>
+                                <img src={able} alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="https://15378-presscdn-0-14-pagely.netdna-ssl.com/wp-content/uploads/2015/05/msc.png" alt=""/>
+                                <img src={msc} alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="https://upload.wikimedia.org/wikipedia/en/c/c6/APL_logo.png" alt=""/>
+                                <img src={apl} alt=""/>
                             </div>
                             <div className="partner_box bot">
-                                <img src="https://www.cma-cgm.com/static/Communication/ImgAboutUs/Logo_CMACGM_page-evenement-3.png" alt=""/>
+                                <img src={cma} alt=""/>
                             </div>
 
                         </div>

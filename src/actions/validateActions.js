@@ -5,3 +5,5 @@ export function checkUserNotVerified(){
 export function checkUserVerified(){
     return {type: 'CHECK_USER_VERIFIED', verified:true}
 }
+
+//check if orderExists

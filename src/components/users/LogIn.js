@@ -81,13 +81,17 @@ class LogIn extends Component{
 
 
   handleSubmit = (e) => {
+      console.log(this.props)
     e.preventDefault();
    let user = this.state.user;
     this.props.userActions.getUser(user).then(r=>{
       message.success('Bienvenido');
-      this.props.history.goBack();
-
-        this.props.userActions.getProfile(r);
+      if(this.props.match.url==='/login'){
+          this.props.history.push('/userprofile')
+      }else{
+          this.props.history.goBack();
+      }
+      this.props.userActions.getProfile(r);
     })
   };
   render(){

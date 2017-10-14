@@ -34,6 +34,13 @@ export function profileReducer(state=null, action){
                 ordersWAgent
             };
 
+        case "CAN_EDIT_ORDER_SUCCESS":
+            let ordersEdit = [...state.orders.filter(o=>o.key!==action.order.key), action.order];
+            return {
+                ...state,
+                ordersEdit
+            };
+
         default:
             return state;
     }

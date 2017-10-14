@@ -63,7 +63,7 @@ const Routes = ({location}) => (
                path="/pay/:searchId"
                component={PayPage}
            />
-           <Route
+           <PrivateConnect
                exact
                path="/orders/:orderId"
                component={DetailOrderPage}

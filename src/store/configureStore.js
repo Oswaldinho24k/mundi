@@ -4,8 +4,7 @@ import thunk from 'redux-thunk';
 
 export const initialState = {
     search:{},
-    user:{},
-    profile:{}
+    userMain:{}
 };
 
 export function configureStore(){

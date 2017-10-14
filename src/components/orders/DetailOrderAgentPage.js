@@ -3,13 +3,13 @@ import {DetailOrderDisplay} from "./DetailOrderDisplay";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import * as orderActions from '../../actions/orderActions';
-import DetailOrderAgent from './DetailOrderAgent';
+
 
 
 
 
 function mapStateToProps(state, ownProps){
-    console.log(state)
+
     return{
         order:state.orders,
         fetched:state.orders !== null,

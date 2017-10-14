@@ -37,13 +37,15 @@ export function getProfile(u){
             .then(profile=>{
                 let p = profile.val();
                 let lista = [];
-                Object.keys(p.orders).forEach((order=>{
-                    let orden = p.orders[order];
-                    orden['key']=order;
-                    lista.push(orden);
+                if(profile.orders){
+                    Object.keys(p.orders).forEach((order=>{
+                        let orden = p.orders[order];
+                        orden['key']=order;
+                        lista.push(orden);
 
-                }));
-                p['orders'] = lista;
+                    }));
+                    p['orders'] = lista;
+                }
             dispatch(getProfileSuccess(p));
 
 

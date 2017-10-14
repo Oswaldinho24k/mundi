@@ -2,7 +2,6 @@
     width:100%;
     height:auto;
     background-color: #212b35;
-
 }
 .invit{
     height:200px;
@@ -24,7 +23,6 @@
     height:40px;
     font-size: 18px;
 }
-
 .footer hr{
     background-color: white;
     height:1px;
@@ -33,13 +31,12 @@
     border:transparent;
 }
 .redes{
-    display: inline-flex;
+    display: flex;
     padding: 15px 15px;
     width:50%;
-
 }
 .flexi{
-
+    display:flex;
     color: white;
 }
 .icon_redes{
@@ -49,17 +46,29 @@
     font-size: 13px;
     padding: 15px 15px;
     width:50%;
+    display: flex;
+    justify-content: flex-end;
 }
 .terminos span{
     margin:0 10px;
 }
 @media(max-width: 425px){
+    .flexi{
+        display: block;
+    }
     .terminos{
         width:100%;
+        justify-content: center;
 
+    }
+    .redes{
+        justify-content: space-around;
     }
     .centro{
         width:50%;
         margin-left: 25%;
+    }
+    .terminos span{
+        margin:0 5px;
     }
 }

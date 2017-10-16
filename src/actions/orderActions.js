@@ -1,5 +1,6 @@
 import firebase from '../firebase';
 //save files
+import PropTypes from 'prop-types';
 export function saveOrderFilesSuccess(payload) {
     return {type: 'SAVE_ORDER_FILES_SUCCESS', payload}
 }
@@ -75,7 +76,7 @@ export function getSingleOrder(userId, orderId){
                 return(r.val())
             }else{
                 console.log('no hay naa')
-               
+
             }
         }).catch(e=>{
             console.log(e)

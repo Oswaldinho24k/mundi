@@ -6,12 +6,17 @@ import FilesPage from './FilesPage';
 import Aduanas from './Aduanas';
 
 export const DetailOrderDisplay = ({user, profile, fetched, order,orderActions, match}) => {
-
+    let miperfil = false;
+    if(match.path==='/orders/:orderId'){
+        miperfil=true
+    }else{
+        miperfil=false
+    }
     return (
         <div>
             {fetched ?
                 <div style={{padding:'1% 2%'}}>
-                    {!order.editable && user === null ?
+                    {!order.editable && (user === null || (miperfil===false && user.uid!==this.props.match.params.userId))  ?
                         <div className="cant-edit-order">
                             <h2>Este envío  ya no puede editarse.</h2>
                             <p>Contacta al dueño del envío si aún necesitas modificarla</p>
@@ -22,7 +27,7 @@ export const DetailOrderDisplay = ({user, profile, fetched, order,orderActions, 
                             </Col>
                             <Col style={{padding:'1%'}} xs={{span:24}} sm={{span:18}} md={{span:18}}>
                                 <Card>
-                                    <FilesPage order={order} user={user} guardarFiles={orderActions.saveOrderFiles}/>
+                                    <FilesPage order={order} user={user} guardarFiles={orderActions.saveOrderFiles} match={match}/>
                                 </Card>
                                 <Card style={{marginTop:'1%'}}>
 

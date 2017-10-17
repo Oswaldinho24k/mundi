@@ -77,6 +77,17 @@ class FilesPage extends React.Component {
         }else{
             archivos = this.state.archivos;
         }
+        let miperfil=false;
+        let miusuario = false;
+        if(this.props.match.path==='/orders/:orderId'){
+            miperfil=true;
+            miusuario=true;
+        }else{
+            miperfil=false;
+            if(this.props.user!==null && this.props.match.params.userId==this.props.user.uid){
+                miusuario = true;
+            }
+        }
         return(
             <Row style={{textAlign:'center'}}>
                 <div className={this.state.uploading?"spinner_files":"noSpin"}>
@@ -85,11 +96,11 @@ class FilesPage extends React.Component {
                 {!archivos.factura?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('factura')}>
                         <Upload
-                            disabled={this.props.user === null ?true:false}
+                            disabled={!miusuario ?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className={this.props.user === null ?"upButton no_agente":"upButton"}>
+                            <div className={!miusuario ?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Factura Comercial</p>
 
@@ -112,10 +123,10 @@ class FilesPage extends React.Component {
                     </a>
                         <div className="reupload">
                             <Upload
-                                disabled={this.props.user === null ?true:false}
+                                disabled={!miusuario ?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className={this.props.user === null ?"upButton re-button no_agente":"upButton re-button"}>
+                                <div className={!miusuario ?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -127,11 +138,11 @@ class FilesPage extends React.Component {
                 {!archivos.carta?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('carta')}>
                         <Upload
-                            disabled={this.props.user === null ?true:false}
+                            disabled={!miusuario ?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className={this.props.user === null ?"upButton no_agente":"upButton"}>
+                            <div className={!miusuario ?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Certificado de Origen</p>
 
@@ -154,10 +165,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
-                                disabled={this.props.user === null ?true:false}
+                                disabled={!miusuario ?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className={this.props.user === null ?"upButton re-button no_agente":"upButton re-button"}>
+                                <div className={!miusuario ?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -169,11 +180,11 @@ class FilesPage extends React.Component {
                 {!archivos.certificado?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('certificado')}>
                         <Upload
-                            disabled={this.props.user === null ?true:false}
+                            disabled={!miusuario ?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className={this.props.user === null ?"upButton no_agente":"upButton"}>
+                            <div className={!miusuario ?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Certificado Fitosanitario</p>
 
@@ -196,10 +207,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
-                                disabled={this.props.user === null ?true:false}
+                                disabled={!miusuario ?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className={this.props.user === null ?"upButton re-button no_agente":"upButton re-button"}>
+                                <div className={!miusuario ?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -211,11 +222,11 @@ class FilesPage extends React.Component {
                 {!archivos.encargo?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('encargo')}>
                         <Upload
-                            disabled={this.props.user === null ?true:false}
+                            disabled={!miusuario ?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className={this.props.user === null ?"upButton no_agente":"upButton"}>
+                            <div className={!miusuario ?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Poliza de Seguro</p>
 
@@ -238,10 +249,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
-                                disabled={this.props.user === null ?true:false}
+                                disabled={!miusuario ?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className={this.props.user === null ?"upButton re-button no_agente":"upButton re-button"}>
+                                <div className={!miusuario ?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -253,11 +264,11 @@ class FilesPage extends React.Component {
                 {!archivos.documento?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('documento')}>
                         <Upload
-                            disabled={this.props.user === null ?true:false}
+                            disabled={!miusuario ?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className={this.props.user === null ?"upButton no_agente":"upButton"}>
+                            <div className={!miusuario ?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Documento de Transporte</p>
 
@@ -280,10 +291,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
-                                disabled={this.props.user === null ?true:false}
+                                disabled={!miusuario ?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className={this.props.user === null ?"upButton re-button no_agente":"upButton re-button"}>
+                                <div className={!miusuario ?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>
@@ -295,11 +306,11 @@ class FilesPage extends React.Component {
                 {!archivos.lista?
                     <Col style={{padding:'2%'}} md={{span:8}} sm={{span:12}} xs={{span:12}} onClick={()=>this.nameUpload('lista')}>
                         <Upload
-                            disabled={this.props.user === null ?true:false}
+                            disabled={!miusuario ?true:false}
 
                             onChange={this.onUpload}
                             showUploadList={false}>
-                            <div className={this.props.user === null ?"upButton no_agente":"upButton"}>
+                            <div className={!miusuario ?"upButton no_agente":"upButton"}>
                                 <Icon type="file-add" style={{fontSize:'2rem'}}/>
                                 <p>Lista de Empaque</p>
 
@@ -322,10 +333,10 @@ class FilesPage extends React.Component {
                         </a>
                         <div className="reupload">
                             <Upload
-                                disabled={this.props.user === null ?true:false}
+                                disabled={!miusuario ?true:false}
                                 onChange={this.onUpload}
                                 showUploadList={false}>
-                                <div className={this.props.user === null ?"upButton re-button no_agente":"upButton re-button"}>
+                                <div className={!miusuario ?"upButton re-button no_agente":"upButton re-button"}>
                                     <Icon type="file-add" />
                                 </div>
                             </Upload>

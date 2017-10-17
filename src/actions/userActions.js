@@ -35,9 +35,10 @@ export function getProfile(u){
 
         return firebase.database().ref(/users/+uid).once('value')
             .then(profile=>{
+
                 let p = profile.val();
                 let lista = [];
-                if(profile.orders){
+                if(p.orders){
                     Object.keys(p.orders).forEach((order=>{
                         let orden = p.orders[order];
                         orden['key']=order;

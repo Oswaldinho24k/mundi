@@ -96,12 +96,19 @@ class Aduanas extends Component{
     render(){
         const order = this.props.order;
         const user = this.props.user;
+        console.log(this.props)
+        let miperfil = false;
+        if(this.props.match.path==='/orders/:orderId'){
+            miperfil=true
+        }else{
+            miperfil=false
+        }
         return (
             <div>
                 <div className={this.state.uploading?"spinner_files spinner_file_agent":"noSpin"}>
                     <Spin size={'large'} />
                 </div>
-                {user === null || user.uid!==this.props.match.params.userId ?
+                {user === null || (miperfil===false && user.uid!==this.props.match.params.userId) ?
                     <Row>
                         {!order.archivos.aduanas?
                             <Col

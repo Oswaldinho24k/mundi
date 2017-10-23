@@ -11,7 +11,7 @@ const FormItem = Form.Item;
 class PaymentForm extends React.Component{
 
     constructor(props){
-        super()
+        super();
         this.state = {
             pago: {},
             visible: false,
@@ -20,13 +20,13 @@ class PaymentForm extends React.Component{
 
     showModal = () =>{
         this.setState({visible:true})
-    }
+    };
 
 
     componentWillMount(){
         firebase.auth().onAuthStateChanged((user)=> {
         if (user) {
-            this.setState({user})
+            this.setState({user});
             firebase.database().ref('users/'+user.uid).on('value', (snap)=>{
             this.setState({usuario:snap.val()})
             })
@@ -50,32 +50,41 @@ class PaymentForm extends React.Component{
         pago[campo] = e.target.value;
         console.log(pago);
         this.setState({pago});
-    }
+    };
 
     handleOk = (e) => {
         console.log(e);
         this.setState({
         visible: false,
         });
-    }
+    };
     handleCancel = (e) => {
         console.log(e);
         this.setState({
         visible: false,
         });
-    }
+    };
 
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.state.user.uid);
         let orden = this.state.busqueda;
+        orden['editable'] = false;
+        orden['archivos'] = {
+            aduanas:'',
+            carta:'',
+            certificado:'',
+            documento:'',
+            encargo:'',
+            factura:'',
+            lista:''
+        };
         orden["pagado"] = true;
-        let ordenes = firebase.database().ref("users/"+this.state.user.uid+"/orders")
+        let ordenes = firebase.database().ref("users/"+this.state.user.uid+"/orders");
         ordenes.push(orden);
-        message.success("Yo've successfully paid")
-
-    }
-
+        message.success("Yo've successfully paid");
+        this.props.history.push('/userprofile');
+    };
 
     render(){
 

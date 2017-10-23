@@ -36,11 +36,11 @@ const columns = [ {
     render:(p)=>{
         if(p==true){
             return(
-                <div>Pagado</div>
+                <div>En camino</div>
             )
         }else{
             return(
-                <div>No Pagado</div>
+                <div>Entregado</div>
             )
         }
 

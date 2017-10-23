@@ -1,5 +1,5 @@
 import React from 'react';
-import {Tabs, Col, Row, Icon, Upload, Button, message, Spin} from 'antd';
+import { Col, Row, Icon, Upload, message, Spin} from 'antd';
 import firebase from '../../firebase';
 import './files.css';
 
@@ -72,19 +72,19 @@ class FilesPage extends React.Component {
     render () {
         const order = this.props.order;
         let archivos;
-        if(order.archivos==undefined){
+        if(order.archivos===undefined){
             archivos = {}
         }else{
             archivos = this.state.archivos;
         }
-        let miperfil=false;
+
         let miusuario = false;
         if(this.props.match.path==='/orders/:orderId'){
-            miperfil=true;
+
             miusuario=true;
         }else{
-            miperfil=false;
-            if(this.props.user!==null && this.props.match.params.userId==this.props.user.uid){
+
+            if(this.props.user!==null && this.props.match.params.userId===this.props.user.uid){
                 miusuario = true;
             }
         }

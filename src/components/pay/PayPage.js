@@ -3,6 +3,7 @@ import firebase from '../../firebase';
 import {Spin,Row,Col} from 'antd';
 import PaymentForm from '../payment/PaymentForm';
 import OrderPage from './OrderPage';
+import {PaymentConnect} from '../payment/PaymentConnect'
 
 
 class PayPage extends Component{
@@ -11,7 +12,7 @@ class PayPage extends Component{
       super()
       this.state = {
           searchId:null,
-          //busqueda:{},
+
           loading:true,
           busqueda:{
             container:'Full',
@@ -54,8 +55,7 @@ class PayPage extends Component{
         return(
             <div style={styles.container}>
                 {!loading ? <div>
-                    <h1>Pago</h1>
-                    <h2>Container: {busqueda.container}</h2>
+
                 </div> : <Spin/>}
 
                 <Row>
@@ -63,11 +63,11 @@ class PayPage extends Component{
                     <Col span={12} style={{padding:'0 8%'}}>
                       <OrderPage
                         bordered={true}
-                        busqueda={this.state.busqueda}/>
+                        order={busqueda}/>
 
                       </Col>
 
-                    <Col span={12}><PaymentForm order={this.state.searchId} history={this.props.history}/></Col>
+                    <Col span={12}><PaymentConnect order={this.state.searchId} history={this.props.history}/></Col>
 
                 </Row>
             </div>
@@ -79,7 +79,8 @@ class PayPage extends Component{
 
 const styles = {
   container:{
-      textAlign:'center'
+      textAlign:'center',
+      paddingTop:'2%'
   }
 };
 

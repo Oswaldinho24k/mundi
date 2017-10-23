@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Form, Icon, Input,Card,  Button, message, Popover } from 'antd';
+import { Form, Icon, Input,Card,  Button, message } from 'antd';
 import {Link} from 'react-router-dom';
 import firebase from '../../firebase';
 

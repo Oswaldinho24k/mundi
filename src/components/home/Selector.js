@@ -89,13 +89,13 @@ class Selector extends Component{
                 console.log("thunk answer: ",r);
                 message.success("Tu busqueda se ha guardado =D");
             });
-        // firebase.database().ref('busquedas')
-        //     .push(data)
-        //         .then(r=>{
-        //             this.setState({searchId:r.key});
-        //             message.success("Tu busqueda se guardó")
-        //         })
-        //         .catch(e=>message.error("Algo muy malo pasó"));
+        firebase.database().ref('busquedas')
+            .push(data)
+                .then(r=>{
+                    this.setState({searchId:r.key});
+                    message.success("Tu busqueda se guardó")
+                })
+                .catch(e=>message.error("Algo muy malo pasó"));
     };
     
     click = () => {

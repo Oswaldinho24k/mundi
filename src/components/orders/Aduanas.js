@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {Row, Col, Icon, Upload, Button, Input, Tooltip, message, Spin, Switch} from 'antd';
 import firebase from '../../firebase';
 import './files.css'

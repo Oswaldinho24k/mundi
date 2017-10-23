@@ -1,9 +1,9 @@
 import React from 'react';
-import firebase from '../../firebase';
+//import firebase from '../../firebase';
 import {Card} from 'antd';
 import 'moment/locale/es';
 import moment from 'moment';
-import FontAwesome from 'react-fontawesome';
+//import FontAwesome from 'react-fontawesome';
 
 const OrderPage=({order}) => {
     return (

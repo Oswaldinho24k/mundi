@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import {message, Row, Col, Upload, Button, Icon, Modal,  Input} from 'antd';
+import {message, Row, Col, Upload, Button, Icon,  Input} from 'antd';
 import firebase from '../../firebase';
 import './userprofile.css';
 
-function getBase64(img, callback) {
+/*function getBase64(img, callback) {
   const reader = new FileReader();
   reader.addEventListener('load', () => callback(reader.result));
   reader.readAsDataURL(img);
-}
+}*/
 
-function beforeUpload(file) {
+/*function beforeUpload(file) {
   const isJPG = file.type === 'image/jpeg';
   if (!isJPG) {
     message.error('You can only upload JPG file!');
@@ -19,7 +19,7 @@ function beforeUpload(file) {
     message.error('Image must smaller than 2MB!');
   }
   return isJPG && isLt2M;
-}
+}*/
 
 
 class EditProfile extends Component{

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {Spin, Col, Card, Row} from 'antd';
 import OrderPage from '../pay/OrderPage';
@@ -54,9 +53,5 @@ export const DetailOrderDisplay = ({user, profile, fetched, order,orderActions, 
     );
 };
 
-//DetailOrderDisplay.propTypes = {};
 
-const styles = {
-    name: {}
-};
 

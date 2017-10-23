@@ -1,4 +1,4 @@
-import {initialState} from "../store/configureStore";
+//import {initialState} from "../store/configureStore";
 import {combineReducers} from 'redux';
 
 export function userReducer(state = null, action){
